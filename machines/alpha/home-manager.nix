@@ -96,7 +96,6 @@ in
     enableUpdateCheck = false;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
-      ahmadalli.vscode-nginx-conf
       alefragnani.bookmarks
       davidanson.vscode-markdownlint
       editorconfig.editorconfig
