@@ -26,9 +26,9 @@
   services.xserver = {
     enable = true;
     xkb = {
-      layout = "us,ru,de";
-      options = "caps:escape,grp:alt_shift_toggle";
-      variant = "altgr-intl";
+      layout = "us";
+      # options = "caps:escape,grp:alt_shift_toggle";
+      # variant = "altgr-intl";
     };
     displayManager = {
       sddm.enable = true;
