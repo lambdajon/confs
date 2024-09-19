@@ -18,13 +18,13 @@
   time.timeZone = "Etc/GMT-5";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  services.displayManager = {
+      sddm.enable = true;
+  };
   services.xserver = {
     enable = true;
     xkb = {
       layout = "us";
-    };
-    displayManager = {
-      sddm.enable = true;
     };
     desktopManager = {
       plasma5.enable = true;
