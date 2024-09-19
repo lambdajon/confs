@@ -26,8 +26,6 @@
     enable = true;
     xkb = {
       layout = "us";
-      # options = "caps:escape,grp:alt_shift_toggle";
-      # variant = "altgr-intl";
     };
     displayManager = {
       sddm.enable = true;
