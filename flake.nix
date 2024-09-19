@@ -43,7 +43,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./machines/alpha/home-configuration.nix;
+              home-manager.users.${username} = import ./machines/alpha/home-manager.nix;
             }
           ];
         };
