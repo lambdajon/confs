@@ -16,11 +16,7 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "Etc/GMT-5";
-  i18n.defaultLocale = "en_Us.UTF-8";
-  i18n.extraLocaleSettings = {
-    LANGUAGE = "en_Us";
-    LC_ALL = "en_Us.UTF-8";
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
 
   services.xserver = {
     enable = true;
