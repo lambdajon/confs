@@ -3,7 +3,7 @@ let
   inherit (lib.hm.gvariant) mkTuple mkUint32;
 in
 {
-  home.stateVersion = "24.05 ";
+  home.stateVersion = "24.05";
 
   home.file.".ghci".source = ../../.config/.ghci;
   home.file.".npmrc".source = ../../.config/.npmrc;
