@@ -194,9 +194,11 @@ in
     delve
     go-tools
     # Haskell
-    haskell.compiler.ghc910
+    # haskell.compiler.ghc910
     cabal-install
-    (haskell-language-server.override { supportedGhcVersions = [ "910" ]; supportedFormatters = [ "fourmolu" ]; })
+    ghc
+    pckgconfig
+    # (haskell-language-server.override { supportedGhcVersions = [ "910" ]; supportedFormatters = [ "fourmolu" ]; })
     haskellPackages.cabal-fmt
     haskellPackages.fourmolu
     haskellPackages.hlint
