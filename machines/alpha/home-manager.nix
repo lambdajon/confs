@@ -169,15 +169,11 @@ in
     tokei
     tree
     insomnia
-    anki
     notes
-    hledger
-    hledger-web
     newsboat
     nb
     texlive.combined.scheme-medium
     hugo
-    zed-editor
     # Media
     moc
     ffmpeg-full
