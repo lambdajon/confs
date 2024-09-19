@@ -129,12 +129,7 @@ in
       streetsidesoftware.code-spell-checker
       zhuangtongfa.material-theme
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "haskell-gtd-nl";
-        publisher = "dbaynak";
-        version = "0.3.3";
-        sha256 = "Hd7E4NW/zj45xTB/iYvwnPTaFevGAF3EoAnZnEUa6LI=";
-      }
+      
     ];
     userSettings = builtins.fromJSON (builtins.readFile ../../.config/code/settings.json);
   };
