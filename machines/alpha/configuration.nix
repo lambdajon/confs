@@ -67,7 +67,6 @@
     file
     vim
     wget
-    gnumake
     xclip
     lsof
     strace
@@ -84,11 +83,7 @@
   };
 
   programs.zsh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
+
   hardware.nvidia = {
     open = false;
     modesetting.enable = true;
