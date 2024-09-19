@@ -1,0 +1,69 @@
+{
+  description = "Take n flakes";
+
+  inputs = {
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+
+      lib = nixpkgs.lib // home-manager.lib;
+
+      systems = [
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+
+      pkgs = import nixpkgs {
+        localSystem = { inherit system; };
+        config = {
+          allowUnfree = true;
+        };
+        overlays = [
+          overlay
+          nur.overlay
+        ];
+      };
+
+      mkSystem = { hostname, username, modules ? [ ] }: nixpkgs.lib.nixosSystem {
+        inherit system pkgs;
+        specialArgs = { inherit inputs hostname username; };
+        modules = [
+          ./machines/${hostname}/configuration.nix
+          ./modules/core/nix.nix
+        ] ++ modules;
+      };
+    in
+    {
+      formatter.x86_64-linux = pkgs.nixpkgs-fmt;
+      nixosConfigurations = {
+        alpha = let username = "beta"; in mkSystem {
+          inherit username;
+          hostname = "alpha";
+          modules = [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./machines/alpha/home-configuration.nix;
+            }
+          ];
+        };
+      };
+    };
+}
