@@ -2,7 +2,6 @@
   description = "Take n flakes";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
@@ -14,20 +13,14 @@
     { self
     , nixpkgs
     , home-manager
+    , nur
     , ...
     } @ inputs:
     let
       inherit (self) outputs;
 
-      lib = nixpkgs.lib // home-manager.lib;
 
-      systems = [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
+      system = "x86_64-linux";
 
       pkgs = import nixpkgs {
         localSystem = { inherit system; };
@@ -35,7 +28,6 @@
           allowUnfree = true;
         };
         overlays = [
-          overlay
           nur.overlay
         ];
       };

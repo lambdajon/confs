@@ -7,7 +7,6 @@ in
 
   home.file.".ghci".source = ../../.config/.ghci;
   home.file.".npmrc".source = ../../.config/.npmrc;
-  home.file.".sqliterc".source = ../../.config/.sqliterc;
 
   home.sessionPath = [
     "$HOME/.npm-global/bin"
