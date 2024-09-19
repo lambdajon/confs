@@ -190,14 +190,14 @@ in
     llvmPackages_16.clang-unwrapped
     # Haskell
     # haskell.compiler.ghc910
-    cabal-install
-    ghc
-    pckgconfig
+    # cabal-install
+    # ghc
+    # pckgconfig
     # (haskell-language-server.override { supportedGhcVersions = [ "910" ]; supportedFormatters = [ "fourmolu" ]; })
-    haskellPackages.cabal-fmt
-    haskellPackages.fourmolu
-    haskellPackages.hlint
-    haskellPackages.ghcprofview
+    # haskellPackages.cabal-fmt
+    # haskellPackages.fourmolu
+    # haskellPackages.hlint
+    # haskellPackages.ghcprofview
     # Java
     maven
     # Nix
