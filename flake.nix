@@ -35,7 +35,7 @@
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
       nixosConfigurations = {
-        alpha = let username = "beta"; in mkSystem {
+        alpha = let username = "lambdajon"; in mkSystem {
           inherit username;
           hostname = "alpha";
           modules = [
