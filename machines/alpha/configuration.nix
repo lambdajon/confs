@@ -31,7 +31,7 @@
       variant = "altgr-intl";
     };
     displayManager = {
-      ssdm.enable = true;
+      sddm.enable = true;
     };
     desktopManager = {
       plasma5.enable = true;
