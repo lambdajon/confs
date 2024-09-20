@@ -20,11 +20,13 @@ in
     lfs.enable = true;
     difftastic.enable = true;
   };
+
   programs.java = {
     enable = true;
     package = pkgs.jdk17;
   };
   programs.sbt.enable = true;
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -189,15 +191,13 @@ in
     gdb
     llvmPackages_16.clang-unwrapped
     # Haskell
-    # haskell.compiler.ghc910
-    # cabal-install
-    # ghc
-    # pckgconfig
-    # (haskell-language-server.override { supportedGhcVersions = [ "910" ]; supportedFormatters = [ "fourmolu" ]; })
-    # haskellPackages.cabal-fmt
-    # haskellPackages.fourmolu
-    # haskellPackages.hlint
-    # haskellPackages.ghcprofview
+    haskell.compiler.ghc910
+    cabal-install
+    (haskell-language-server.override { supportedGhcVersions = [ "910" ]; supportedFormatters = [ "fourmolu" ]; })
+    haskellPackages.cabal-fmt
+    haskellPackages.fourmolu
+    haskellPackages.hlint
+    haskellPackages.ghcprofview
     # Java
     maven
     # Nix

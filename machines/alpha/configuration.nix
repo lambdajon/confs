@@ -19,7 +19,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services.displayManager = {
-      sddm.enable = true;
+    sddm.enable = true;
   };
   services.xserver = {
     enable = true;
@@ -31,6 +31,7 @@
     };
     videoDrivers = [ "nvidia" ];
   };
+  
 
   services.openssh.enable = true;
   services.pcscd.enable = true;
@@ -81,9 +82,12 @@
   hardware.nvidia = {
     open = false;
     modesetting.enable = true;
-    nvidiaSettings = false;
-    powerManagement.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
   hardware.bluetooth.settings = {
     General = {
       Experimental = true;
