@@ -191,9 +191,9 @@ in
     gdb
     llvmPackages_16.clang-unwrapped
     # Haskell
-    haskell.compiler.ghc910
+    haskell.compiler.ghc98
     cabal-install
-    (haskell-language-server.override { supportedGhcVersions = [ "910" ]; supportedFormatters = [ "fourmolu" ]; })
+    (haskell-language-server.override { supportedGhcVersions = [ "98" ]; supportedFormatters = [ "fourmolu" ]; })
     haskellPackages.cabal-fmt
     haskellPackages.fourmolu
     haskellPackages.hlint
