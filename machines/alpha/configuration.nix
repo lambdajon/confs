@@ -18,24 +18,17 @@
   time.timeZone = "Etc/GMT-5";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # services.displayManager = {
-  #   sddm.enable = true;
-  # };
-  services.displayManager.sddm.wayland = {
-    enable = true;
-  };
-  
   services.xserver = {
     enable = true;
     xkb = {
       layout = "us";
     };
-    desktopManager = {
-      plasma5.enable = true;
-    };
     videoDrivers = [ "nvidia" ];
   };
-  
+
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.plasma6.enable = true;
 
   services.openssh.enable = true;
   services.pcscd.enable = true;
@@ -77,6 +70,15 @@
     usbutils
     pciutils
     git
+    # 
+    inxi
+    kdePackages.kdeconnect-kde
+    kdePackages.plasma-browser-integration
+    openssl
+    vulkan-tools
+    wayland-utils
+    wineWowPackages.waylandFull
+    xwaylandbideobridge
   ];
 
   environment.variables = {
