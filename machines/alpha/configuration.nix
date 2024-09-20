@@ -1,6 +1,7 @@
 { inputs, outputs, lib, pkgs, hostname, username, ... }: {
   imports =
     [
+      <nixos-hardware/framework/12th-gen-intel>
       ./hardware-configuration.nix
     ];
 
