@@ -28,7 +28,7 @@
 
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
-  services.displayManager.plasma6.enable = true;
+  services.displayManager.plasma5.enable = true;
 
   services.openssh.enable = true;
   services.pcscd.enable = true;
