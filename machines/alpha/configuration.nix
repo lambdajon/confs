@@ -18,9 +18,13 @@
   time.timeZone = "Etc/GMT-5";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.displayManager = {
-    sddm.enable = true;
+  # services.displayManager = {
+  #   sddm.enable = true;
+  # };
+  services.displayManager.sddm.wayland = {
+    enable = true;
   };
+  
   services.xserver = {
     enable = true;
     xkb = {
