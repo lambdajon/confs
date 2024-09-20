@@ -18,17 +18,21 @@
   time.timeZone = "Etc/GMT-5";
   i18n.defaultLocale = "en_US.UTF-8";
 
+
   services.xserver = {
     enable = true;
     xkb = {
       layout = "us";
+    };
+    desktopManager = {
+      plasma6.enable = true;
     };
     videoDrivers = [ "nvidia" ];
   };
 
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
-  services.displayManager.plasma5.enable = true;
+  # services.displayManager.plasma6.enable = true;
 
   services.openssh.enable = true;
   services.pcscd.enable = true;
