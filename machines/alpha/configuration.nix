@@ -82,7 +82,7 @@
     vulkan-tools
     wayland-utils
     wineWowPackages.waylandFull
-    xwaylandbideobridge
+    xwaylandvideobridge
   ];
 
   environment.variables = {
