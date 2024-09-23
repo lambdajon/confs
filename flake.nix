@@ -35,6 +35,9 @@
     in
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
+
+      devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+      
       nixosConfigurations = {
         alpha = let username = "lambdajon"; in mkSystem {
           inherit username;
