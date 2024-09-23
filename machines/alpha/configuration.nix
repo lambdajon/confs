@@ -110,6 +110,7 @@
     wayland-utils
     wineWowPackages.waylandFull
     xwaylandvideobridge
+    curl
   ];
 
   environment.variables = {
