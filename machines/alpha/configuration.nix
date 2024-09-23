@@ -25,7 +25,7 @@
       powerManagement.finegrained = false;
       nvidiaSettings = true;
     };
-    bluetooth ={
+    bluetooth = {
       settings = {
         General = {
           Experimental = true;
