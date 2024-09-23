@@ -17,6 +17,7 @@
         localSystem = { inherit system; };
         config = {
           allowUnfree = true;
+          cudaSupport = true;
         };
         overlays = [
           nur.overlay
