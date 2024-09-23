@@ -14,11 +14,6 @@
   networking.hostName = hostname;
   
   hardware = {
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-      support32Bit = true;
-    };
 
     nvidia = {
       open = false;
@@ -59,7 +54,7 @@
   services.desktopManager = {
     plasma6.enable = true;
   };
-
+  
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
   # services.displayManager.plasma6.enable = true;
@@ -77,7 +72,7 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    # pulse.enable = true;
+    pulse.enable = true;
     audio.enable = true;
 
   };
