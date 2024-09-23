@@ -17,7 +17,9 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
+      support32Bit = true;
     };
+
     nvidia = {
       open = false;
       modesetting.enable = true;
@@ -25,6 +27,7 @@
       powerManagement.finegrained = false;
       nvidiaSettings = true;
     };
+
     bluetooth = {
       settings = {
         General = {
