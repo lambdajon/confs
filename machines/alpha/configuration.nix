@@ -13,6 +13,29 @@
 
   networking.hostName = hostname;
   
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull
+    };
+    nvidia = {
+      open = false;
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      nvidiaSettings = true;
+    };
+    bluetooth ={
+      settings = {
+        General = {
+          Experimental = true;
+          Enable = "Source,Sink,Media,Socket"
+        };
+      };
+    }
+  };
+  
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Etc/GMT-5";
@@ -45,7 +68,7 @@ services.desktopManager = {
   services.earlyoom.freeMemThreshold = 5;
   services.thermald.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -94,20 +117,6 @@ services.desktopManager = {
   };
 
   programs.zsh.enable = true;
-
-  hardware.nvidia = {
-    open = false;
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    nvidiaSettings = true;
-  };
-
-  hardware.bluetooth.settings = {
-    General = {
-      Experimental = true;
-    };
-  };
 
   system.stateVersion = "24.05";
 }
