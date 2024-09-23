@@ -55,6 +55,7 @@
         alpha = let username = "lambdajon"; in mkSystem {
           inherit username;
           hostname = "alpha";
+          
           modules = [
             home-manager.nixosModules.home-manager
             {
