@@ -56,10 +56,10 @@
     videoDrivers = [ "nvidia" ];
   };
 
-services.desktopManager = {
-  plasma6.enable = true;
-};
-
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
+  
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
   # services.displayManager.plasma6.enable = true;
@@ -78,6 +78,8 @@ services.desktopManager = {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    audio.enable = true;
+
   };
 
   users.defaultUserShell = pkgs.zsh;
