@@ -17,7 +17,7 @@
         "x86_64-linux"
       ];
 
-      forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system})
+      forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
 
       pkgsFor = lib.genAttrs systems (system:
         import nixpkgs {
