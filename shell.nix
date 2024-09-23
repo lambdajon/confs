@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {}, ... } : {
 
-  default = pkgs.mkShell; {
+  default = pkgs.mkShell {
     name = "lambdashell";
 
     nativeBuildInputs = with pkgs; [
