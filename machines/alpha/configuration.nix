@@ -29,7 +29,7 @@
       settings = {
         General = {
           Experimental = true;
-          Enable = "Source,Sink,Media,Socket"
+          Enable = "Source,Sink,Media,Socket";
         };
       };
     };
