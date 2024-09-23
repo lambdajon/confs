@@ -16,6 +16,7 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
+       lib = nixpkgs.lib // home-manager.lib;
 
       forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
 
