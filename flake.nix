@@ -12,6 +12,18 @@
   outputs = inputs @ { self, nixpkgs, nur, home-manager, ... } :
     let
       system = "x86_64-linux";
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+
+      forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system})
+
+      pkgsFor = lib.genAttrs systems (system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        });
 
       pkgs = import nixpkgs {
         localSystem = { inherit system; };
