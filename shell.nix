@@ -10,7 +10,7 @@
 
     ];
 
-    buildInpura = with pkgs.python3Packages; [
+    buildInputs = with pkgs.python3Packages; [
       python
       requests
       opencv4
