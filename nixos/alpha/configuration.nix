@@ -72,6 +72,8 @@
   services.earlyoom.enable = true;
   services.earlyoom.freeMemThreshold = 5;
 
+  # WARNING TODO!!!
+  # Highly recommended to get rid of this and move it to users space
   environment.systemPackages = with pkgs; [
     docker-compose
     file
