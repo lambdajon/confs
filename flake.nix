@@ -112,31 +112,4 @@
     in
     # Merging all final results
     afes // afse;
-
-  # mkSystem = { hostname, username, modules ? [ ] }: nixpkgs.lib.nixosSystem {
-  #   inherit system pkgs;
-  #   specialArgs = { inherit inputs hostname username; };
-  #   modules = [
-  #     ./machines/${hostname}/configuration.nix
-  #     ./modules/core/nix.nix
-  #   ] ++ modules;
-  # };
-
-  # {
-  #   nixosConfigurations = {
-  #     alpha = let username = "lambdajon"; in mkSystem {
-  #       inherit username;
-  #       hostname = "alpha";
-
-  #       modules = [
-  #         home-manager.nixosModules.home-manager
-  #         {
-  #           home-manager.useGlobalPkgs = true;
-  #           home-manager.useUserPackages = true;
-  #           home-manager.users.${username} = import ./machines/alpha/home-manager.nix;
-  #         }
-  #       ];
-  #     };
-  #   };
-  # };
 }
