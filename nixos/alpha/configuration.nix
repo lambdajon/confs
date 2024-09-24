@@ -1,4 +1,9 @@
-{ inputs, outputs, lib, pkgs, hostname, username, ... }: {
+{ inputs
+, outputs
+, lib
+, pkgs
+, ...
+}: {
   # You can import other NixOS modules here
   imports =
     [
@@ -71,40 +76,6 @@
   # Early OOM management
   services.earlyoom.enable = true;
   services.earlyoom.freeMemThreshold = 5;
-
-  # WARNING TODO!!!
-  # Highly recommended to get rid of this and move it to users space
-  environment.systemPackages = with pkgs; [
-    docker-compose
-    file
-    vim
-    wget
-    xclip
-    lsof
-    strace
-    zip
-    unzip
-    fdupes
-    libGL
-    pulseaudio
-    usbutils
-    pciutils
-    git
-    #
-    inxi
-    kdePackages.kdeconnect-kde
-    kdePackages.plasma-browser-integration
-    openssl
-    vulkan-tools
-    wayland-utils
-    wineWowPackages.waylandFull
-    xwaylandvideobridge
-    curl
-  ];
-
-  environment.variables = {
-    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.libGL}/lib";
-  };
 
   # Enabling docker
   virtualisation.docker = {
