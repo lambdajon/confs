@@ -1,0 +1,27 @@
+name: Update CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      # Comeback and uncomment when you setup PAT for workflow
+      # - name: Update flake.lock
+      #   uses: DeterminateSystems/update-flake-lock@main
+      #   with:
+      #     token: ${{ secrets.PAT }}

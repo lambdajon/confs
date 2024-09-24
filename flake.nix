@@ -107,6 +107,31 @@
 
           # Shortcuts for auto detection
           "akhmadiy@Akhmadiys-Macbook-Pro.local" = self.homeConfigurations."akhmadiy@apple"; # MacBook Pro
+
+          # For unstable non NixOS machines
+          "lamdajon@unstable" = home-manager.lib.homeManagerConfiguration {
+            pkgs =
+              nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+            extraSpecialArgs = { inherit inputs outputs; };
+            modules = [
+              # > Our main home-manager configuration file <
+              ./home/linux.nix
+            ];
+          };
+
+          # For stable non NixOS machines
+          "lamdajon@stable" = home-manager.lib.homeManagerConfiguration {
+            pkgs =
+              nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+            extraSpecialArgs = { inherit inputs outputs; };
+            modules = [
+              # > Our main home-manager configuration file <
+              ./home/linux.nix
+            ];
+          };
+
+          # For topgrade from NixOS instances
+          "lamdajon" = self.homeConfigurations."lamdajon@stable";
         };
       };
     in
