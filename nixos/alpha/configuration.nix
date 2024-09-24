@@ -5,6 +5,7 @@
       # If you want to use modules your own flake exports (from modules/nixos):
       outputs.nixosModules.ssh
       outputs.nixosModules.zsh
+      outputs.nixosModules.fonts
       outputs.nixosModules.nixpkgs
       outputs.nixosModules.boot.grub
       outputs.nixosModules.desktop.kde
@@ -17,6 +18,7 @@
 
       # You can also split up your configuration and import pieces of it here:
       # ./users.nix
+      outputs.nixosModules.users.lambdajon
 
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix

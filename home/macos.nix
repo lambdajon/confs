@@ -6,7 +6,14 @@
 , packages
 , ...
 }: {
-  imports = [ ];
+  imports = [
+    outputs.homeManagerModules.zsh
+    outputs.homeManagerModules.vscode
+    outputs.homeManagerModules.nixpkgs
+    outputs.homeManagerModules.firefox
+    outputs.homeManagerModules.packages
+    outputs.homeManagerModules.topgrade
+  ];
 
   # This is required information for home-manager to do its job
   home = {
@@ -16,15 +23,15 @@
 
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
-    # file.".config" = {
-    #   source = ../configs/config;
-    #   recursive = true;
-    # };
+    file.".config" = {
+      source = ../configs/config;
+      recursive = true;
+    };
 
-    # file.".local/share" = {
-    #   source = ../configs/share;
-    #   recursive = true;
-    # };
+    file.".local/share" = {
+      source = ../configs/share;
+      recursive = true;
+    };
   };
 
   # This is to ensure programs are using ~/.config rather than

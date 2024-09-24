@@ -16,6 +16,8 @@ let
     then [ ]
     else
       (with pkgs;[
+        # L's to motherfuckers from discord
+        # for not supporting arm64
         discord
       ]);
 
@@ -27,6 +29,10 @@ let
     qbittorrent
     openvpn
     zoom-us
+    obs-studio
+    krita
+    mpv
+    insomnia
   ]) ++ (with pkgs.unstable; [
     zed-editor
   ]);
@@ -34,11 +40,11 @@ in
 {
   config = {
     users.users = {
-      sakhib = {
+      lambdajon = {
         isNormalUser = true;
         description = "Lambdajon";
-        initialPassword = "HaHaLambdaG0Brrrrr...";
-        openssh.authorizedKeys.keys = [ "" ];
+        initialPassword = "https://cornhub.website";
+        openssh.authorizedKeys.keys = [ "" ]; # TODO: Add ssh pub key here
         extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
         packages = any-pkgs ++ arm-incs;
       };
@@ -48,7 +54,7 @@ in
       extraSpecialArgs = { inherit inputs outputs; };
       users = {
         # Import your home-manager configuration
-        sakhib = import ../../../home/linux.nix;
+        lambdajon = import ../../../home/linux.nix;
       };
     };
   };

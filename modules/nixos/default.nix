@@ -6,6 +6,8 @@
   zsh = import ./zsh;
   boot = import ./boot;
   sound = import ./sound;
+  users = import ./users;
+  fonts = import ./fonts;
   desktop = import ./desktop;
   nixpkgs = import ./nixpkgs;
   hardware = import ./hardware;
