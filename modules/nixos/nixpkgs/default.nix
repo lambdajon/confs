@@ -49,7 +49,7 @@
 
       # This will set the package for nix.conf generation
       # More: https://www.reddit.com/r/NixOS/comments/182hvhf/comment/kakkpqc
-      # package = pkgs.nix;
+      package = lib.mkForce pkgs.nix;
 
       settings = {
         # Enable flakes and new 'nix' command
