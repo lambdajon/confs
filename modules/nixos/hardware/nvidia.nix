@@ -6,6 +6,11 @@
     # GPU for docker containers
     hardware.nvidia-container-toolkit.enable = true;
 
+    # Kernel mod for nvidia laptops
+    boot.kernelParams = [
+      "nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1"
+    ];
+
     # Driver + parameters
     hardware.nvidia = {
       open = false;

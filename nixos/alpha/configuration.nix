@@ -6,6 +6,7 @@
       outputs.nixosModules.ssh
       outputs.nixosModules.zsh
       outputs.nixosModules.nixpkgs
+      outputs.nixosModules.boot.grub
       outputs.nixosModules.desktop.kde
       outputs.nixosModules.hardware.intel
       outputs.nixosModules.hardware.nvidia

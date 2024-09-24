@@ -17,17 +17,17 @@
 
         # Exclude some defautl packages
         excludePackages = [ pkgs.xterm ];
+      };
 
-        # Enable the GDM display manager.
-        displayManager.sddm = {
-          enable = true;
-          # wayland.enable = true;
-        };
+      # Enable the GDM display manager.
+      displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
 
-        # Enable the KDE Desktop Environment.
-        desktopManager.plasma6 = {
-          enable = true;
-        };
+      # Enable the KDE Desktop Environment.
+      desktopManager.plasma6 = {
+        enable = true;
       };
     };
 
@@ -48,7 +48,6 @@
     environment.plasma6.excludePackages =
       with pkgs.kdePackages; [
         kate # that editor
-        plasma-browser-integration # browser integration
       ];
 
     # programs.gnupg.agent = {
@@ -63,6 +62,15 @@
     environment.systemPackages = with pkgs; [
       # Papirus Icon Pack
       papirus-icon-theme
+
+      # Various plugins for KDE
+      kdePackages.kdeconnect-kde
+      kdePackages.plasma-browser-integration
+
+      # X server video bridge
+      vulkan-tools
+      wayland-utils
+      xwaylandvideobridge
     ];
   };
 }

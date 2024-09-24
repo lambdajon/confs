@@ -22,8 +22,11 @@ let
   # General packages
   any-pkgs = (with pkgs;[
     telegram-desktop
-    github-desktop
+    zulip
     spotify
+    qbittorrent
+    openvpn
+    zoom-us
   ]) ++ (with pkgs.unstable; [
     zed-editor
   ]);
