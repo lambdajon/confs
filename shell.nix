@@ -1,24 +1,42 @@
-{ pkgs ? import <nixpkgs> {}, ... } : {
+{ pkgs ? let
+    # Use packages indicated in lock file to match version
+    lock = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs.locked;
+    nixpkgs = fetchTarball {
+      url = "https://github.com/nixos/nixpkgs/archive/${lock.rev}.tar.gz";
+      sha256 = lock.narHash;
+    };
+  in
+  import nixpkgs { overlays = [ ]; }
+, ...
+}: pkgs.stdenv.mkDerivation {
+  name = "shell";
 
-  default = pkgs.mkShell {
-    name = "lambdashell";
+  nativeBuildInputs = with pkgs; [
+    # Devops stuff
+    sops
+    age
 
-    nativeBuildInputs = with pkgs; [
-      sops
-      age
-      yamllint
+    # LSPs
+    nil
+    nixd
+    yamllint
 
+    # Uncomment if your Nix version is old
+    # nix
 
-    ];
+    # Formatter
+    nixpkgs-fmt
 
-    buildInputs = with pkgs.python3Packages; [
-      python
-      requests
-      opencv4
-    ];
+    # SVCs
+    git
+  ];
 
-    NIX_CONFIG = "extra-experimental-features = nix-command flakes";
-  };
-  
+  # Cancer
+  buildInputs = with pkgs.python3Packages; [
+    python
+    requests
+    opencv4
+  ];
+
+  NIX_CONFIG = "extra-experimental-features = nix-command flakes";
 }
-
