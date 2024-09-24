@@ -2,6 +2,7 @@
 , lib
 , config
 , inputs
+, pkgs
 , ...
 }: {
   config = {
@@ -45,6 +46,10 @@
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well, awesome!
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+      # This will set the package for nix.conf generation
+      # More: https://www.reddit.com/r/NixOS/comments/182hvhf/comment/kakkpqc
+      package = pkgs.nix;
 
       settings = {
         # Enable flakes and new 'nix' command
