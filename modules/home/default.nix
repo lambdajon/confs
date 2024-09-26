@@ -9,5 +9,5 @@
   firefox = import ./firefox;
   packages = import ./packages;
   topgrade = import ./topgrade;
-  nixpkgs = import ./nixos/nixpkgs;
+  nixpkgs = import ../nixos/nixpkgs;
 }
