@@ -113,6 +113,7 @@
             pkgs =
               nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
             extraSpecialArgs = { inherit inputs outputs; };
+            home-manager.backupFileExtension = "backup"
             modules = [
               # > Our main home-manager configuration file <
               ./home/linux.nix
