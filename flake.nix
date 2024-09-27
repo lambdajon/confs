@@ -122,15 +122,17 @@
 
           # For stable non NixOS machines
           "lamdajon@stable" = home-manager.lib.homeManagerConfiguration {
-            pkgs =
-              nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+            pkgs = import nixpkgs {
+              inherit system;
+            };
+              # nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
             
-            home-manager.backupFileExtension = "backup";
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [
               # > Our main home-manager configuration file <
               ./home/linux.nix
             ];
+            home-manager.backupFileExtension = "backup";
           };
 
           # For topgrade from NixOS instances

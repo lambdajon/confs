@@ -22,7 +22,7 @@
   home = {
     stateVersion = "24.05";
     username = "lambdajon";
-    homeDirectory = "/home/lambdajon";
+    homeDirectory = "/home/${username}";
 
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
