@@ -22,7 +22,7 @@
   home = {
     stateVersion = "24.05";
     username = "lambdajon";
-    homeDirectory = "/home/${username}";
+    homeDirectory = "/home/lambdajon";
 
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
@@ -42,5 +42,4 @@
 
   # Let's enable home-manager
   programs.home-manager.enable = true;
-  # programs.home-manager.backupFileExtension = "backup";
 }
