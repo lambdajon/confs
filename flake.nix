@@ -130,7 +130,9 @@
               # > Our main home-manager configuration file <
               ./home/linux.nix
             ];
-            home-manager.backupFileExtension = "backup";
+            # home-manager.backupFileExtension = "bkp";
+            home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
+            # home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" { env.when = self.sourceInfo.lastModified; } "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
           };
 
           # For topgrade from NixOS instances
