@@ -38,10 +38,10 @@
       recursive = true;
     };
 
-    # file.".local/share" = {
-    #   source = ../configs/share;
-    #   recursive = true;
-    # };
+    file.".local/share" = {
+      source = ../configs/share;
+      recursive = true;
+    };
 
     # Don't check if home manager is same as nixpkgs
     enableNixpkgsReleaseCheck = false;
