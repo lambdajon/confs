@@ -128,7 +128,14 @@
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [
               # > Our main home-manager configuration file <
-              ./home/linux.nix
+              # ./home/linux.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.lambdajon = import ./home/linux.nix;
+
+              }
             ];
             home-manager.backupFileExtension = "backup";
             # home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";

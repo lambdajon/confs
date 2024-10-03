@@ -24,12 +24,12 @@
     username = "lambdajon";
     homeDirectory = "/home/lambdajon";
 
-    exampleDir = {
-      source = "/home/lambdajon/lambdas-home";
-      target = "backups/lambdas-home";
-      recursive = true;
-      # onChange = "echo $(date) >> /tmp/modified"
-    };
+    # exampleDir = {
+    #   source = "/home/lambdajon/lambdas-home";
+    #   target = "backups/lambdas-home";
+    #   recursive = true;
+    #   # onChange = "echo $(date) >> /tmp/modified"
+    # };
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
     # file.".config" = {
