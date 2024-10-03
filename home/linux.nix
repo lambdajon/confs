@@ -26,15 +26,15 @@
 
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
-    file.".config" = {
-      source = ../configs/config;
-      recursive = true;
-    };
+    # file.".config" = {
+    #   source = ../configs/config;
+    #   recursive = true;
+    # };
 
-    file.".local/share" = {
-      source = ../configs/share;
-      recursive = true;
-    };
+    # file.".local/share" = {
+    #   source = ../configs/share;
+    #   recursive = true;
+    # };
 
     # Don't check if home manager is same as nixpkgs
     enableNixpkgsReleaseCheck = false;
