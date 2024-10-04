@@ -95,18 +95,18 @@
         # Available through 'home-manager --flake .#your-username@your-hostname'
         homeConfigurations = {
           # For all current OSX machines
-          "akhmadiy@apple" = home-manager.lib.homeManagerConfiguration {
-            pkgs =
-              nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
-            extraSpecialArgs = { inherit inputs outputs; };
-            modules = [
-              # > Our main home-manager configuration file <
-              ./home/macos.nix
-            ];
-          };
+          # "akhmadiy@apple" = home-manager.lib.homeManagerConfiguration {
+          #   pkgs =
+          #     nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+          #   extraSpecialArgs = { inherit inputs outputs; };
+          #   modules = [
+          #     # > Our main home-manager configuration file <
+          #     ./home/macos.nix
+          #   ];
+          # };
 
-          # Shortcuts for auto detection
-          "akhmadiy@Akhmadiys-Macbook-Pro.local" = self.homeConfigurations."akhmadiy@apple"; # MacBook Pro
+          # # Shortcuts for auto detection
+          # "akhmadiy@Akhmadiys-Macbook-Pro.local" = self.homeConfigurations."akhmadiy@apple"; # MacBook Pro
 
           # For unstable non NixOS machines
           "lamdajon@unstable" = home-manager.lib.homeManagerConfiguration {
@@ -129,15 +129,15 @@
             modules = [
               # > Our main home-manager configuration file <
               # ./home/linux.nix
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.lambdajon = import ./home/linux.nix;
+            #   home-manager.nixosModules.home-manager
+            #   {
+            #     home-manager.useGlobalPkgs = true;
+            #     home-manager.useUserPackages = true;
+            #     home-manager.users.lambdajon = import ./home/linux.nix;
 
-              }
-            ];
-            home-manager.backupFileExtension = "backup";
+            #   }
+            # ];
+            # home-manager.backupFileExtension = "backup";
             # home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
             # home-manager.backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" { env.when = self.sourceInfo.lastModified; } "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
           };
