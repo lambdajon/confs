@@ -20,20 +20,19 @@
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/638fa12e-c390-4839-aa93-465955658745";
+    { device = "/dev/disk/by-uuid/f61becf3-2b7f-4746-9462-fdfdb865e0c5";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/B876-8A1E";
+    { device = "/dev/disk/by-uuid/E063-024F";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/9be181ea-521e-4d96-ba78-6e5978180dbd"; }];
+  swapDevices = [ ];
+  # swapDevices =
+  #   [{ device = "/dev/disk/by-uuid/9be181ea-521e-4d96-ba78-6e5978180dbd"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
