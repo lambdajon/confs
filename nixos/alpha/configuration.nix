@@ -13,7 +13,7 @@
       outputs.nixosModules.fonts
       outputs.nixosModules.nixpkgs
       outputs.nixosModules.boot.grub
-      outputs.nixosModules.desktop.kde
+      outputs.nixosModules.desktop.gnome
       outputs.nixosModules.hardware.intel
       outputs.nixosModules.hardware.nvidia
 
