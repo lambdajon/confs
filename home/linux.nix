@@ -34,7 +34,7 @@
     # repository to the `.config` in my home-manager directory
     file.".config" = {
       source = ../configs/config;
-      target = "backups";
+      target = "backup";
       recursive = true;
     };
 
