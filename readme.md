@@ -1,1 +1,2 @@
-# Nigga config for a nigga
+# My Nix Configurations
+

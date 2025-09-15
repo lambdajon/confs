@@ -1,19 +1,23 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, ...
+}:
+let
   # Package sets for different targets
-  macos = import ./osx.nix {inherit pkgs;};
-  linux = import ./linux.nix {inherit pkgs;};
-  globals = import ./global.nix {inherit pkgs;};
-in {
+  macos = import ./target/osx.nix { inherit pkgs; };
+  linux = import ./target/linux.nix { inherit pkgs; };
+  globals = import ./target/global.nix { inherit pkgs; };
+
+  # Check if the target is MacOS
+  isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
+in
+{
   options = {
     packages = {
       isMacOS = lib.mkOption {
         type = lib.types.bool;
-        default = pkgs.stdenv.hostPlatform.isDarwin;
+        default = isMacOS;
         description = "Is installed packages are MacOS targetted.";
       };
     };

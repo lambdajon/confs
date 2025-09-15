@@ -1,42 +1,50 @@
-{ pkgs, ... }:
-let
-  # Don't update home manager on NixOS
-  duhm =
-    if pkgs.stdenv.isDarwin
-    then [ ]
-    else [ "home_manager" ];
-
-  # Disable updates for these programs
-  dull = [
-    "bun"
-    "nix"
-    "node"
-    "pnpm"
-    "yarn"
-    "cargo"
-    "vscode"
-  ];
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  darwin = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+    commands."Darwin Nix" = "sudo darwin-rebuild switch --flake github:lambdajon/confs --option tarball-ttl 0";
+  };
+
+  cfg = {
+    misc = {
+      disable = [
+        "bun"
+        "nix"
+        "node"
+        "pnpm"
+        "yarn"
+        "cargo"
+        "vscode"
+        "brew_cask"
+        "containers"
+        "brew_formula"
+        "home_manager"
+        "ruby_gems"
+        "gem"
+      ];
+      no_retry = true;
+      assume_yes = true;
+      no_self_update = true;
+    };
+
+    linux = {
+      nix_arguments = "--flake github:lambdajon/confs --option tarball-ttl 0";
+    };
+
+    brew = {
+      autoremove = true;
+    };
+  };
+in {
   config = {
     programs.topgrade = {
       enable = true;
-      settings = {
-        misc = {
-          disable = dull ++ duhm;
-          no_retry = true;
-          assume_yes = true;
-          no_self_update = true;
-        };
-        commands = { };
-        linux = {
-          nix_arguments = "--flake github:lambdajon/confs";
-          home_manager_arguments = [ "--flake" "github:lambdajon/confs" ];
-        };
-        brew = {
-          autoremove = true;
-        };
-      };
+      settings = lib.mkMerge [
+        cfg
+        darwin
+      ];
     };
   };
 }
