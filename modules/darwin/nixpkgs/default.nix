@@ -62,7 +62,7 @@
         experimental-features = "nix-command flakes";
         # Trusted users for secret-key
         trusted-users = [
-          "${config.users.users.sakhib.name}"
+          "${config.users.users.lambdajon.name}"
         ];
       };
     };

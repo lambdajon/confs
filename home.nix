@@ -32,7 +32,7 @@
     # Leave here configs that should be applied only at macos machines
 
     # This is to ensure programs are using ~/.config rather than
-    # /Users/sakhib/Library/whatever
+    # /Users/lambdajon/Library/whatever
     xdg.enable = true;
   };
 
@@ -65,8 +65,8 @@
     # This is required information for home-manager to do its job
     home = {
       stateVersion = "24.11";
-      username = "sakhib";
-      homeDirectory = "/${home}/sakhib";
+      username = "lambdajon";
+      homeDirectory = "/${home}/lambdajon";
       enableNixpkgsReleaseCheck = false;
 
       # Tell it to map everything in the `config` directory in this

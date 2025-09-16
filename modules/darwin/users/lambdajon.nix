@@ -9,7 +9,7 @@
 
     # Available users in the machine
     users.users = {
-      sakhib = {
+      lambdajon = {
         home = "/Users/lambdajon";
 
         openssh.authorizedKeys.keys = lib.strings.splitString "\n" (
@@ -30,7 +30,7 @@
       };
       users = {
         # Import your home-manager configuration
-        sakhib = import ../../../home.nix;
+        lambdajon = import ../../../home.nix;
       };
     };
   };
