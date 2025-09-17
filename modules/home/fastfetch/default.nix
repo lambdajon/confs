@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         logo = {
-          source = "orzklv";
+          source = "Lambdajon";
           padding = {
             top = 3;
             right = 3;
