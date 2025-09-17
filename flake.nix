@@ -4,7 +4,7 @@
   #   /  |/ / / |/_/  / /   / __ \/ __ \/ /_/ ___/
   #  / /|  / />  <   / /___/ /_/ / / / / __(__  )
   # /_/ |_/_/_/|_|   \____/\____/_/ /_/_/ /____/
-  description = "Sokhibjon's dotfiles";
+  description = "Lambdajon's dotfiles";
 
   # inputs are other flakes you use within your own flake, dependencies
   # for your flake, etc.
