@@ -52,7 +52,7 @@
 
       # Linux builder for Linux projects
       linux-builder = {
-        enable = true;
+        enable = false;
         ephemeral = true;
       };
 
