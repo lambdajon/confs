@@ -3,7 +3,7 @@
     enable = true;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
-    package = pkgs.vscode;
+    package = pkgs.unstable.vscode;
 
     # Extentions
     extensions = with pkgs.vscode-extensions; [
