@@ -4,20 +4,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  x86_64-linux:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  # x86_64-linux:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+  #     - name: Install Nix
+  #       uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Evaluate Nix expression
-        run: nix eval --impure --show-trace --json -f ./repl.nix packages
-        env:
-          NIXPKGS_ALLOW_UNFREE: "1"
-          NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
+  #     - name: Evaluate Nix expression
+  #       run: nix eval --impure --show-trace --json -f ./repl.nix packages
+  #       env:
+  #         NIXPKGS_ALLOW_UNFREE: "1"
+  #         NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
 
 
   # aarch64-linux:
