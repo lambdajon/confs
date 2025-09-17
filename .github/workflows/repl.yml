@@ -1,7 +1,7 @@
 name: Repl Activation
 
-on:
-  workflow_dispatch:
+# on:
+#   workflow_dispatch:
 
 jobs:
   # x86_64-linux:
