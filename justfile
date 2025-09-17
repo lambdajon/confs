@@ -34,4 +34,5 @@ build-darwin:
   nix build .#darwinConfigurations.Lambdajons-MacBook-Pro.config.system.build.toplevel --show-trace
 
 build-nixos:
-  nix build .#nixosConfigurations.Laboratory.config.system.build.toplevel --show-trace
+  echo "welcome nixos"
+  # nix build .#nixosConfigurations.Laboratory.config.system.build.toplevel --show-trace

@@ -130,15 +130,15 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       # Stored at/as root/nixos/<hostname lower case>/*.nix
-      nixosConfigurations = orzklv-pkgs.lib.config.mapSystem {
-        inherit inputs outputs;
-        opath = ./.;
-        list = [
-          "Parallels"
-          "Laboratory"
-          "Station"
-        ];
-      };
+      # nixosConfigurations = orzklv-pkgs.lib.config.mapSystem {
+      #   inherit inputs outputs;
+      #   opath = ./.;
+      #   list = [
+      #     "Parallels"
+      #     "Laboratory"
+      #     "Station"
+      #   ];
+      # };
 
       # Darwin configuration entrypoint
       # Available through 'darwin-rebuild build --flake .#your-hostname'
