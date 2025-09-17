@@ -16,7 +16,7 @@
     "obs"
     "sf-symbols"
     "telegram-desktop"
-    "vscode"
+    "visual-studio-code"
     "zen"
   ];
 in {
