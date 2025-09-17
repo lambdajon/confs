@@ -15,6 +15,7 @@
     "macs-fan-control"
     "obs"
     "sf-symbols"
+    "telegram-desktop"
     "zen"
   ];
 in {
