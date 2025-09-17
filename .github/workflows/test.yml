@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [self-hosted, macos-latest, ubuntu-latest]
+        os: [macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -72,5 +72,5 @@ jobs:
         uses: DeterminateSystems/flakehub-cache-action@main
 
       - name: Build Aarch64 Darwin configuration
-        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
+        run: nix build .#darwinConfigurations.Lambdajons-MacBook-Pro.config.system.build.toplevel --show-trace
 
