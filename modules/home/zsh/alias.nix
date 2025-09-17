@@ -59,7 +59,7 @@
     # Development
     # TODO: chnge vi vim, zed, heck
     vi = "hx";
-    vim = "hx";
+    # vim = "hx";
     zed = "zeditor";
     heck = "zed .";
     hack = "nix develop -c $SHELL";
