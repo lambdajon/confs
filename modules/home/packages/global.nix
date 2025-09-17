@@ -51,4 +51,9 @@
 
   # Rust
   pkgs.rustup
+  # C
+  pkgs.gcc
+  pkgs.gdb
+  llvmPackages_16.clang-unwrapped
+  
 ]
