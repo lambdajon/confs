@@ -54,6 +54,9 @@
   # C
   pkgs.gcc
   pkgs.gdb
-  llvmPackages_16.clang-unwrapped
-  
+  pkgs.llvmPackages_15.clang-unwrapped
+  pkgs.llvmPackages_15.libllvm
+  #Z3
+  pkgs.z3
+
 ]
