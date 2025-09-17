@@ -15,4 +15,5 @@
   topgrade = import ./topgrade;
   packages = import ./packages;
   fastfetch = import ./fastfetch;
+  vscode = import ./vscode;
 }
