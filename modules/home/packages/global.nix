@@ -31,9 +31,24 @@
   pkgs.jdk17
 
   # Media encode & decode
-  pkgs.ffmpeg
+  pkgs.ffmpeg-full
   pkgs.libheif
 
   # GPG Signing
   pkgs.gnupg
+
+  # Database
+  pkgs.sqlite
+
+  # Lean
+  pkgs.elan
+  # Agda
+  (pkgs.agda.withPackages (ps: with ps; [
+    standard-library
+  ]))
+  # Alloy
+  pkgs.alloy6
+
+  # Rust
+  pkgs.rustup
 ]
