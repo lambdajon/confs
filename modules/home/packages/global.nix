@@ -43,9 +43,10 @@
   # Lean
   pkgs.elan
   # Agda
-  (pkgs.agda.withPackages (ps: with ps; [
-    standard-library
-  ]))
+  (pkgs.agda.withPackages (ps:
+    with ps; [
+      standard-library
+    ]))
   # Alloy
   pkgs.alloy6
 
@@ -58,5 +59,4 @@
   #pkgs.llvmPackages_15.libllvm
   #Z3
   pkgs.z3
-
 ]
