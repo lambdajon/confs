@@ -52,6 +52,7 @@
     ping = "gping";
     time = "hyperfine";
     korgi = "cargo";
+    ll = "ls -la";
 
     # Refresh
     refresh = "source ~/.zshrc";
@@ -73,7 +74,6 @@
     xclip = "xclip -selection c";
     speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
     dockfm = "docker ps --all --format \"NAME:   {{.Names}}\nSTATUS: {{.Status}}\nPORTS:  {{.Ports}}\n\"";
-    
 
     # Updating system
     update = "topgrade";
