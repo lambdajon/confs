@@ -36,3 +36,6 @@ build-darwin:
 build-nixos:
   echo "welcome nixos"
   # nix build .#nixosConfigurations.Laboratory.config.system.build.toplevel --show-trace
+
+switch-darwin: 
+  sudo nix run nix-darwin -- switch --flake .#Lambdajons-MacBook-Pro --show-trace
