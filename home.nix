@@ -17,6 +17,7 @@
     outputs.homeModules.packages
     outputs.homeModules.fastfetch
     outputs.homeModules.vscode
+    outputs.homeModules.haskell
 
     # Third party modules
     inputs.zen-browser.homeModules.twilight
