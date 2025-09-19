@@ -52,6 +52,12 @@
               version = "0.0.212";
               sha256 = "b74aeff0fa04ea51313078bd5d432fc10c490007a1250dd96ae9b8c1916c9f86";
             }
+            {
+              name = "markdowntable";
+              publisher = "takumii";
+              version = "0.11.0";
+              sha256 = "kn5aLRaxxacQMvtTp20IdTuiuc6xNU3QO2XbXnzSf7o=";
+            }
 
           ];
 
