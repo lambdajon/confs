@@ -109,7 +109,7 @@
     ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
-
+    WAKATIME_API_KEY=fuck
     ${mac-extra}
     ${linux-extra}
   '';
