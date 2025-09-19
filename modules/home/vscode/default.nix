@@ -46,6 +46,13 @@
             oderwat.indent-rainbow
           ]
           ++ pkgs.vscode-utils. extensionsFromVscodeMarketplace [
+            {
+              name = "lean4";
+              publisher = "leanprover";
+              version = "0.0.212";
+              sha256 = "b74aeff0fa04ea51313078bd5d432fc10c490007a1250dd96ae9b8c1916c9f86";
+            }
+
           ];
 
         # User defined setings (raw json)
