@@ -20,6 +20,7 @@ pkgs.stdenv.mkDerivation {
     statix
     deadnix
     alejandra
+    hlint
   ];
 
   NIX_CONFIG = "extra-experimental-features = nix-command flakes";
