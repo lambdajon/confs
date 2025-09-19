@@ -16,6 +16,7 @@
     outputs.homeModules.topgrade
     outputs.homeModules.packages
     outputs.homeModules.fastfetch
+    outputs.homeModules.vscode
 
     # Third party modules
     inputs.zen-browser.homeModules.twilight
