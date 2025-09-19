@@ -4,74 +4,110 @@
       enable = true;
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
-      package = pkgs.unstable.vscode;
+      package = pkgs.vscode;
 
-      # Extentions
-      extensions = with pkgs.vscode-extensions;
-        [
-          alefragnani.bookmarks
-          davidanson.vscode-markdownlint
-          editorconfig.editorconfig
-          usernamehw.errorlens
-          dbaeumer.vscode-eslint
-          tamasfe.even-better-toml
-          eamodio.gitlens
-          jdinhlife.gruvbox
-          haskell.haskell
-          justusadam.language-haskell
-          james-yu.latex-workshop
-          bierner.markdown-mermaid
-          pkief.material-icon-theme
-          pkief.material-product-icons
-          jnoortheen.nix-ide
-          christian-kohler.path-intellisense
-          esbenp.prettier-vscode
-          rust-lang.rust-analyzer
-          scalameta.metals
-          scala-lang.scala
-          timonwong.shellcheck
-          vscodevim.vim
-          wakatime.vscode-wakatime
-          donjayamanne.githistory
-          esbenp.prettier-vscode
-          github.vscode-github-actions
-          jebbs.plantuml
-          mechatroner.rainbow-csv
-          redhat.vscode-yaml
-          pkief.material-icon-theme
-          streetsidesoftware.code-spell-checker
-          zhuangtongfa.material-theme
-          ziglang.vscode-zig
-        ]
-        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "lean4";
-            publisher = "leanprover";
-            version = "0.0.178";
-            sha256 = "ByhiTGwlQgNkFf0BirO+QSDiXbQfR6RLQA8jM4B1+O4=";
-          }
-          {
-            name = "markdown-checkbox";
-            publisher = "bierner";
-            version = "0.4.0";
-            sha256 = "AoPcdN/67WOzarnF+GIx/nans38Jan8Z5D0StBWIbkk=";
-          }
-          {
-            name = "markdown-preview-github-styles";
-            publisher = "bierner";
-            version = "2.0.3";
-            sha256 = "yuF6TJSv0V2OvkBwqwAQKRcHCAXNL+NW8Q3s+dMFnLY=";
-          }
-          {
-            name = "markdowntable";
-            publisher = "takumii";
-            version = "0.11.0";
-            sha256 = "kn5aLRaxxacQMvtTp20IdTuiuc6xNU3QO2XbXnzSf7o=";
-          }
-        ];
+      extensions = with pkgs.vscode-extensions; [
+        alefragnani.bookmarks
+        davidanson.vscode-markdownlint
+        editorconfig.editorconfig
+        usernamehw.errorlens
+        dbaeumer.vscode-eslint
+        tamasfe.even-better-toml
+        eamodio.gitlens
+        jdinhlife.gruvbox
+        haskell.haskell
+        justusadam.language-haskell
+        james-yu.latex-workshop
+        bierner.markdown-mermaid
+        pkief.material-icon-theme
+        pkief.material-product-icons
+        jnoortheen.nix-ide
+        christian-kohler.path-intellisense
+        esbenp.prettier-vscode
+        rust-lang.rust-analyzer
+        scalameta.metals
+        scala-lang.scala
+        timonwong.shellcheck
+        vscodevim.vim
+        # wakatime.vscode-wakatime
+        donjayamanne.githistory
+        esbenp.prettier-vscode
+        github.vscode-github-actions
+        jebbs.plantuml
+        mechatroner.rainbow-csv
+        redhat.vscode-yaml
+        pkief.material-icon-theme
+        streetsidesoftware.code-spell-checker
+        zhuangtongfa.material-theme
+        ziglang.vscode-zig
+      ];
 
       # User defined setings (raw json)
-      userSettings = builtins.fromJSON (builtins.readFile ./settings.json);
+      userSettings = {
+        "workbench.colorTheme" = "Gruvbox Dark Medium";
+        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.productIconTheme" = "material-product-icons";
+        "window.nativeTabs" = true;
+        "files.autoSave" = "afterDelay";
+        "redhat.telemetry.enabled" = true;
+        "[typescript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "[yaml]" = {
+          "editor.defaultFormatter" = "redhat.vscode-yaml";
+        };
+        "editor.tabSize" = 2;
+        "[json]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+        };
+        "[javascript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "files.watcherExclude" = {
+          "**/.bloop" = true;
+          "**/.metals" = true;
+          "**/.ammonite" = true;
+        };
+        "[markdown]" = {
+          "editor.wordWrap" = "wordWrapColumn";
+          "editor.wrappingIndent" = "same";
+          "editor.wordWrapColumn" = 120;
+          "vim.textwidth" = 120;
+        };
+        "haskell.manageHLS" = "GHCup";
+        "files.associations" = {
+          "*.hs" = "haskell";
+        };
+        "metals.excludedPackages" = [
+        ];
+        "cSpell.userWords" = [
+        ];
+        "cSpell.customDictionaries" = {
+        };
+        "[jsonc]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+        };
+        "files.exclude" = {
+          "**/.DS_Store" = true;
+          "**/.git" = true;
+          "**/.hg" = true;
+          "**/.lsp" = true;
+          "**/.svn" = true;
+          "**/.vscode" = true;
+          "**/.idea" = true;
+          "**/CVS" = true;
+          "**/Thumbs.db" = true;
+          "**/node_modules" = true;
+          "**/target" = true;
+        };
+      };
+      profiles.default = {
+        userSettings = {
+          "[nix]"."editor.tabSize" = 2;
+          "[python]"."editor.tabSize" = 4;
+        };
+      };
+      # Extentions
     };
   };
 }
