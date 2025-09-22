@@ -113,6 +113,9 @@
             "extensions.autoCheckUpdates" = false;
             "files.associations" = {
               "*.hs" = "haskell";
+              "*.dump-simpl" = "haskell";
+              "*.dump-ds" = "haskell";
+              "*.project.local" = "haskell";
             };
             "files.autoSave" = "afterDelay";
             "files.exclude" = {
@@ -139,6 +142,11 @@
             "workbench.colorTheme" = "Gruvbox Dark Medium";
             "workbench.iconTheme" = "material-icon-theme";
             "workbench.productIconTheme" = "material-product-icons";
+            haskell = {
+              formattingProvider = "fourmolu";
+              manageHLS = "PATH";
+            };
+
           };
         };
       };
