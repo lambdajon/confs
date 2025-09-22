@@ -146,7 +146,17 @@
               formattingProvider = "fourmolu";
               manageHLS = "PATH";
             };
-
+            nix = {
+              enableLanguageServer = true;
+              serverPath = "nil";
+              serverSettings = {
+                "nil" = {
+                  "formatting" = {
+                    "command" = ["nixpkgs-fmt"];
+                  };
+                };
+              };
+            };
           };
         };
       };
