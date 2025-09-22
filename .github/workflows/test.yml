@@ -1,42 +1,32 @@
 name: Test CI
 
-on: [ pull_request]
+on: [pull_request]
 
 jobs:
-  # test-flake:
-  #   name: "Test Configurations"
+  test-flake:
+    name: "Test Configurations"
 
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       os: [macos-latest]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
 
-  #   runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-  #   steps:
-  #     - name: Check out the repository
-  #       uses: actions/checkout@v4
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
 
-  #     - name: Install Nix
-  #       if: ${{ matrix.os != 'self-hosted' }}
-  #       uses: DeterminateSystems/nix-installer-action@main
+      - name: Install Nix
+        if: ${{ matrix.os != 'self-hosted' }}
+        uses: DeterminateSystems/nix-installer-action@main
 
-  #     - name: Check up flake configuration
-  #       run: nix flake check --show-trace
+      - name: Check up flake configuration
+        run: nix flake check --show-trace
 
   # build-nixos:
   #   name: "Build Configurations for NixOS instances"
 
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       pattern:
-  #         - system: self-hosted
-  #           target: Parallels
-  #         - system: ubuntu-latest
-  #           target: Laboratory
-  #         - system: ubuntu-latest
-  #           target: Station
 
   #   runs-on: ${{ matrix.pattern.system }}
 
@@ -57,25 +47,25 @@ jobs:
   #     - name: Build NixOS configuration
   #       run: nix build .#nixosConfigurations.${{ matrix.pattern.target }}.config.system.build.toplevel --show-trace
 
-  # build-darwin:
-  #   name: "Build Configurations for Darwin instances"
-  #   runs-on: macos-latest
+  build-darwin:
+    name: "Build Configurations for Darwin instances"
+    runs-on: macos-latest
 
-  #   steps:
-  #     - name: Check out the repository
-  #       uses: actions/checkout@v4
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
 
-  #     - name: Install Nix
-  #       uses: DeterminateSystems/nix-installer-action@main
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
 
-  #     - name: Cache Nix store
-  #       uses: DeterminateSystems/flakehub-cache-action@main
+      - name: Cache Nix store
+        uses: DeterminateSystems/flakehub-cache-action@main
 
-  #     - name: Build Aarch64 Darwin configuration
-  #       run: nix build .#darwinConfigurations.Lambdajons-MacBook-Pro.config.system.build.toplevel --show-trace
+      - name: Build Aarch64 Darwin configuration
+        run: nix build .#darwinConfigurations.Lambdajons-MacBook-Pro.config.system.build.toplevel --show-trace
   update-merge:
     name: "Merge Update PRs"
-    # needs: [test-flake, build-nixos, build-darwin]
+    needs: [test-flake, build-darwin]
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.user.login == 'lambdajon' && github.event_name == 'pull_request' }}
 
