@@ -28,6 +28,7 @@
       extraSpecialArgs = {
         inherit inputs outputs;
       };
+      backupFileExtension = "baka";
       users = {
         # Import your home-manager configuration
         lambdajon = import ../../../home.nix;
