@@ -41,7 +41,7 @@
 in {
   config = {
     users.users = {
-      sakhib = {
+      lambdajon = {
         inherit packages hashedPassword;
         isNormalUser = true;
         description = "Lambdajon";
