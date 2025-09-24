@@ -81,7 +81,6 @@
                 sha256 = "sha256-WIhmAZLR2WOSqQF3ozJ/Vr3Rp6HdSK7L23T3h4AVaGM=";
               }
             ];
-
           # User defined setings (raw json)
           userSettings = {
             "[javascript]" = {
@@ -135,7 +134,7 @@
               "**/.ammonite" = true;
               "**/.bloop" = true;
             };
-            "haskell.manageHLS" = "GHCup";
+            "haskell.manageHLS" = "PATH";
             "redhat.telemetry.enabled" = true;
             "update.mode" = "none";
             "window.nativeTabs" = true;
