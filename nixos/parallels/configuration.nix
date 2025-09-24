@@ -11,7 +11,7 @@
     outputs.nixosModules.ssh
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
-    outputs.nixosModules.boot.grub
+    outputs.nixosModules.boot.systemd
     outputs.nixosModules.users.lambdajon
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
