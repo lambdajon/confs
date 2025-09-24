@@ -73,10 +73,10 @@
 
       # Tell it to map everything in the `config` directory in this
       # repository to the `.config` in my home-manager directory
-      file.".local/share/fastfetch" = {
-        source = ./configs/fastfetch;
-        recursive = true;
-      };
+      # file.".local/share/fastfetch" = {
+      #   source = ./configs/fastfetch;
+      #   recursive = true;
+      # };
     };
 
     # Let's enable home-manager
