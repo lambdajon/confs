@@ -14,6 +14,7 @@
     "logitech-options"
     "macs-fan-control"
     "obs"
+    "orbstack"
     "sf-symbols"
     "telegram-desktop"
     "visual-studio-code"
