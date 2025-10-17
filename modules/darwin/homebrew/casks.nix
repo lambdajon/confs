@@ -5,6 +5,7 @@
 }: let
   apps = lib.mkIf config.homebrew.enable [
     "discord"
+    "dbeaver-community"
     "element"
     "font-sf-mono-nerd-font-ligaturized"
     "github"
