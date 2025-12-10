@@ -71,6 +71,7 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -130,30 +131,37 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       # Stored at/as root/nixos/<hostname lower case>/*.nix
-      nixosConfigurations = orzklv-pkgs.lib.config.mapSystem {
-        inherit inputs outputs;
-        opath = ./.;
-        list = [
-          "Parallels"
-          # "Laboratory"
-          # "Station"
-        ];
+      # nixosConfigurations = orzklv-pkgs.lib.config.mapSystem {
+      #   inherit inputs outputs;
+      #   opath = ./.;
+      #   list = [
+      #     "Parallels"
+      #     # "Laboratory"
+      #     # "Station"
+      #   ];
+      # };
+      nixosConfigurations."nixos" = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+          modules = [
+            ./nixos/victus/configuration.nix
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
       };
 
       # Darwin configuration entrypoint
       # Available through 'darwin-rebuild build --flake .#your-hostname'
       # Stored at/as root/darwin/<alias name for machine>/*.nix
 
-      darwinConfigurations = orzklv-pkgs.lib.config.attrSystem {
-        inherit inputs outputs;
-        opath = ./.;
-        type = "darwin";
-        list = [
-          {
-            name = "Lambdajons-MacBook-Pro";
-            alias = "macbook-pro";
-          }
-        ];
+      darwinConfigurations."Lambdajons-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+        system = "aarch-darwin";
+          modules = [
+            ./darwin/macbook-pro/configuration.nix
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
       };
     };
 }

@@ -8,7 +8,7 @@
   ssh = import ./ssh;
   zsh = import ./zsh;
   boot = import ./boot;
-  data = import ./data;
+  # data = import ./data;
   users = import ./users;
   desktop = import ./desktop;
   nixpkgs = import ./nixpkgs;

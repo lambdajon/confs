@@ -60,6 +60,9 @@
               banacorn.agda-mode
               gruntfuggly.todo-tree
               oderwat.indent-rainbow
+              ms-vscode.cpptools-extension-pack
+              mads-hartmann.bash-ide-vscode
+              llvm-vs-code-extensions.vscode-clangd
             ]
             ++ pkgs.vscode-utils. extensionsFromVscodeMarketplace [
               {

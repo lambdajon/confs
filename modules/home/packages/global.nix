@@ -54,10 +54,17 @@
   # Rust
   pkgs.rustup
   # C
-  #pkgs.gcc
-  #pkgs.gdb
-  #pkgs.llvmPackages_15.clang-unwrapped
-  #pkgs.llvmPackages_15.libllvm
+  pkgs.gcc
+  pkgs.gdb
+  pkgs.llvmPackages_15.clang-unwrapped
+  pkgs.llvmPackages_15.libllvm
   #Z3
   pkgs.z3
+
+  # Nodejs
+  pkgs.nodejs_24
+  
+  # net tools
+  pkgs.nmap
+  # pkgs.dbus
 ]
