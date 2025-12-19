@@ -44,15 +44,14 @@
     cat = "bat";
     ls = "eza";
     sl = "eza";
-    ps = "procs";
     grep = "rg";
     search = "rg";
     look = "fd";
-    find = "fd";
     ping = "gping";
     time = "hyperfine";
     korgi = "cargo";
     ll = "ls -la";
+    f-push = "git add . &&  git commit -m \"wip\" && git push";
 
     # Refresh
     refresh = "source ~/.zshrc";
