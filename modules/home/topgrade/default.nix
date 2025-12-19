@@ -15,7 +15,6 @@
         "node"
         "pnpm"
         "yarn"
-        "cargo"
         "vscode"
         "brew_cask"
         "containers"
