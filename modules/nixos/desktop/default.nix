@@ -202,7 +202,7 @@ in {
         gnome-decoder
         gnome-secrets
         gnome-obfuscate
-        gnome-resources
+        resources
 
         # Developer
         gnome-boxes
