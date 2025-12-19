@@ -4,6 +4,8 @@
 {
   inputs,
   outputs,
+  pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -22,6 +24,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.crashDump.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -47,6 +50,9 @@
     variant = "";
   };
 
+  services.power-profiles-daemon.enable = false;
+  powerManagement.powertop.enable = false;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -65,6 +71,43 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  services.dbus = {
+    enable = true;
+    implementation = "broker";
+    packages = with pkgs; [
+      xfce.xfconf
+      gnome2.GConf
+    ];
+  };
+
+  environment.variables = {
+    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.libGL}/lib";
+  };
+
+  hardware.nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      nvidiaPersistenced = false;
+      dynamicBoost.enable = false;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      mesa
+      libvdpau
+      libva-vdpau-driver
+      libva
+      vulkan-loader
+      vulkan-validation-layers
+    ];
+  };
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
