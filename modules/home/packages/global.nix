@@ -1,6 +1,6 @@
 {pkgs, ...}: [
   # Downloader
-  pkgs.aria
+  pkgs.aria2
   pkgs.yt-dlp
 
   # Developer Mode
@@ -11,7 +11,7 @@
   pkgs.netcat
   pkgs.direnv
   pkgs.git-lfs
-  pkgs.cargo-update
+  # pkgs.cargo-update
   # pkgs.nixvim
 
   # Environment
@@ -52,12 +52,16 @@
   pkgs.alloy6
 
   # Rust
-  pkgs.rustup
+  pkgs.rustc
+  pkgs.cargo
+  pkgs.clippy
+  pkgs.rust-analyzer
+  pkgs.rustfmt
   # C
   pkgs.gcc
   pkgs.gdb
-  pkgs.llvmPackages_15.clang-unwrapped
-  pkgs.llvmPackages_15.libllvm
+  pkgs.llvmPackages_20.clang-unwrapped
+  pkgs.llvmPackages_20.libllvm
   #Z3
   pkgs.z3
 
@@ -67,4 +71,11 @@
   # net tools
   pkgs.nmap
   # pkgs.dbus
+
+  #uml
+
+  pkgs.graphviz
+
+  #xorg-kill
+  pkgs.xkill
 ]
