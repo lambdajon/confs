@@ -9,7 +9,7 @@
           # Extensions
           extensions = with pkgs.vscode-extensions; [
             jnoortheen.nix-ide
-            bbenoist.nix
+            # bbenoist.Nix
             rust-lang.rust-analyzer
           ];
 
@@ -26,6 +26,7 @@
 
           extensions = with pkgs.vscode-extensions;
             [
+              bbenoist.nix
               alefragnani.bookmarks
               davidanson.vscode-markdownlint
               editorconfig.editorconfig
@@ -111,6 +112,11 @@
             };
             "cSpell.userWords" = [
             ];
+            chat.disableAIFeatures = true;
+            "chat.agent.enabled"= false;
+            "chat.commandCenter.enabled"= false;
+            "inlineChat.accessibleDiffView"= "off";
+            "terminal.integrated.initialHint"= false;
             "editor.tabSize" = 2;
             "extensions.autoCheckUpdates" = false;
             "files.associations" = {
@@ -148,13 +154,21 @@
               formattingProvider = "fourmolu";
               manageHLS = "PATH";
             };
+            "alejandra.program" = "alejandra";
+            "[nix]" = {
+              "editor.tabSize" = 2;
+              "editor.defaultFormatter" = "kamadorueda.alejandra";
+              "editor.formatOnPaste" = true;
+              "editor.formatOnSave" = true;
+              "editor.formatOnType" = false;
+            };
             nix = {
               enableLanguageServer = true;
-              serverPath = "nil";
+              serverPath = "nixd";
               serverSettings = {
                 "nil" = {
                   "formatting" = {
-                    "command" = ["nixpkgs-fmt"];
+                    "command" = ["alejandra"];
                   };
                 };
               };
