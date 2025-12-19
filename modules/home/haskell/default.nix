@@ -15,7 +15,6 @@ in {
         h.haskell-language-server
         h.cabal-fmt
         h.fourmolu
-        h.ghcprofview
       ];
     };
   };
