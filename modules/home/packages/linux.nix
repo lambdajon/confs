@@ -6,4 +6,7 @@
 
   pkgs.zulip
   pkgs.flameshot
+
+  #xorg-kill
+  pkgs.xkill
 ]

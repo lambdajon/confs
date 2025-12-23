@@ -76,6 +76,4 @@
 
   pkgs.graphviz
 
-  #xorg-kill
-  pkgs.xkill
 ]
