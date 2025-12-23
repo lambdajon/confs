@@ -113,10 +113,10 @@
             "cSpell.userWords" = [
             ];
             chat.disableAIFeatures = true;
-            "chat.agent.enabled"= false;
-            "chat.commandCenter.enabled"= false;
-            "inlineChat.accessibleDiffView"= "off";
-            "terminal.integrated.initialHint"= false;
+            "chat.agent.enabled" = false;
+            "chat.commandCenter.enabled" = false;
+            "inlineChat.accessibleDiffView" = "off";
+            "terminal.integrated.initialHint" = false;
             "editor.tabSize" = 2;
             "extensions.autoCheckUpdates" = false;
             "files.associations" = {

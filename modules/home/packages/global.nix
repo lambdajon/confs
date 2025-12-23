@@ -67,7 +67,7 @@
 
   # Nodejs
   pkgs.nodejs_24
-  
+
   # net tools
   pkgs.nmap
   # pkgs.dbus

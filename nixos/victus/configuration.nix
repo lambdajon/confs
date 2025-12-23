@@ -86,15 +86,15 @@
   };
 
   hardware.nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      nvidiaPersistenced = false;
-      dynamicBoost.enable = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = true;
+    nvidiaSettings = true;
+    nvidiaPersistenced = false;
+    dynamicBoost.enable = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   hardware.graphics = {
     enable = true;
@@ -107,7 +107,6 @@
       vulkan-validation-layers
     ];
   };
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

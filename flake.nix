@@ -71,7 +71,6 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -142,12 +141,12 @@
       # };
       nixosConfigurations."nixos" = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-          modules = [
-            ./nixos/victus/configuration.nix
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
+        modules = [
+          ./nixos/victus/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
       };
 
       # Darwin configuration entrypoint
@@ -156,12 +155,12 @@
 
       darwinConfigurations."Lambdajons-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
         system = "aarch-darwin";
-          modules = [
-            ./darwin/macbook-pro/configuration.nix
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
+        modules = [
+          ./darwin/macbook-pro/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
       };
     };
 }
