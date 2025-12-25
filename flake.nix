@@ -10,7 +10,7 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
@@ -24,7 +24,7 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -61,7 +61,7 @@
     # An anime game(s) launcher (Genshin Impact)
     # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     # Or, if you follow Nixkgs release 25.05:
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
     aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
 
     # Goofy ahh browser from brainrot generation
