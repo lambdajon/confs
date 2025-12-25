@@ -2,15 +2,24 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
+  inputs,
+  outputs,
   config,
   pkgs,
   ...
 }: {
   imports = [
+    outputs.nixosModules.zsh
+    outputs.nixosModules.ssh
+    outputs.nixosModules.desktop
+    outputs.nixosModules.nixpkgs
+    outputs.nixosModules.boot.systemd
+    outputs.nixosModules.users.lambdajon
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-  ];
 
+    inputs.home-manager.nixosModules.home-manager
+  ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
