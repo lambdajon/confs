@@ -2,5 +2,5 @@
 {
   # List your users here
   lambdajon = import ./lambdajon.nix;
-  wpc = import ./wpc.nix;
+  # wpc = import ./wpc.nix;
 }

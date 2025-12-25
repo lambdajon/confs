@@ -44,7 +44,7 @@ in {
       lambdajon = {
         inherit packages hashedPassword;
         isNormalUser = true;
-        description = "Lambdajon";
+        description = "X";
 
         extraGroups = [
           "networkmanager"
