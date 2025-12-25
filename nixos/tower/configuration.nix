@@ -76,14 +76,14 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lambdajon = {
-    isNormalUser = true;
-    description = "lambdajon";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
+  # users.users.lambdajon = {
+  #   isNormalUser = true;
+  #   description = "lambdajon";
+  #   extraGroups = ["networkmanager" "wheel"];
+  #   packages = with pkgs; [
+  #     #  thunderbird
+  #   ];
+  # };
 
   # Install firefox.
   programs.firefox.enable = true;
