@@ -75,5 +75,4 @@
   #uml
 
   pkgs.graphviz
-
 ]

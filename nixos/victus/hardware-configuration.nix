@@ -13,11 +13,14 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [
     "kvm-amd"
-    "nvidia"
-    "nvidiafb"
-    "nvidia_modeset"
-    "nvidia_drm"
+    # "nvidia"
+    # "nvidiafb"
+    # "nvidia_modeset"
+    # "nvidia_drm"
   ];
+  # boot.kernelParams = [
+  #   "nvidia-drm.modeset=1"
+  # ];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
