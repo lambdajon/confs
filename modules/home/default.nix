@@ -17,4 +17,5 @@
   fastfetch = import ./fastfetch;
   vscode = import ./vscode;
   haskell = import ./haskell;
+  emacs = import ./emacs;
 }
