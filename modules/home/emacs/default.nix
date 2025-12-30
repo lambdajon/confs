@@ -1,6 +1,12 @@
 { pkgs, config, ... }:
 let
   emacsPkg = config.programs.emacs.finalPackage;
+  inherit (pkgs) stdenv;
+  osx = stdenv.hostPlatform.isDarwin;
+  emacs =
+    if osx
+    then pkgs.emacs-macport
+    else pkgs.emacs;
 in
 {
   home.activation.linkEmacsApp = config.lib.dag.entryAfter [ "writeBoundary" ] ''
@@ -11,11 +17,13 @@ in
     ${pkgs.mkalias}/bin/mkalias "$app_src" "$app_dst"
   '';
 
+  
   programs.zsh.shellAliases.emacs = "open ${emacsPkg}/Applications/Emacs.app";
+
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-macport;
+    package = emacs;
     # extraConfig = builtins.readFile ../../.config/emacs/init.el;
     extraConfig = builtins.readFile ./init.el;
     extraPackages = epkgs: with epkgs; [
