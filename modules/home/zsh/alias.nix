@@ -17,7 +17,7 @@
 
   linux = lib.mkIf (!is-mac) {
     # Refresh
-    clean = "nix store gc && nix collect-garbage -d";
+    clean = "nix store gc && nix-collect-garbage -d";
   };
 
   default = {
