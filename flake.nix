@@ -139,10 +139,20 @@
       #     # "Station"
       #   ];
       # };
-      nixosConfigurations."nixos" = inputs.nixpkgs.lib.nixosSystem {
+      nixosConfigurations."tower" = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixos/tower/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
+
+      nixosConfigurations."victus" = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos/victus/configuration.nix
         ];
         specialArgs = {
           inherit inputs outputs;
