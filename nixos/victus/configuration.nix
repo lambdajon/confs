@@ -19,6 +19,8 @@
     ./hardware-configuration.nix
 
     inputs.home-manager.nixosModules.home-manager
+
+    inputs.relago.nixosModules.relago
   ];
 
   # Bootloader.
@@ -85,6 +87,11 @@
     LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.libGL}/lib";
   };
 
+
+  services.relago = {
+    enable = true;
+    # user = users.users.lambdajon;
+  };
   hardware.nvidia = {
     modesetting.enable = false;
     powerManagement.enable = false;

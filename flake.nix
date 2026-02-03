@@ -78,6 +78,14 @@
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
+
+    relago = {
+      url = "github:xinux-org/relago/bootstrap-relago-module";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -88,6 +96,7 @@
     home-manager,
     flake-utils,
     orzklv-pkgs,
+    relago,
     ...
   } @ inputs: let
     # Self instance pointer
