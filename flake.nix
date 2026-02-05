@@ -158,6 +158,16 @@
         };
       };
 
+      nixosConfigurations."tower3" = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos/tower3/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
+
       nixosConfigurations."victus" = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
