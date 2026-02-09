@@ -79,13 +79,13 @@
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
 
-    relago = {
-      url = "github:xinux-org/relago/bootstrap-relago-module";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-unstable.follows = "nixpkgs-unstable";
-      };
-    };
+    # relago = {
+    #   url = "github:xinux-org/relago/bootstrap-relago-module";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     nixpkgs-unstable.follows = "nixpkgs-unstable";
+    #   };
+    # };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -96,7 +96,7 @@
     home-manager,
     flake-utils,
     orzklv-pkgs,
-    relago,
+    # relago,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -158,7 +158,7 @@
         };
       };
 
-      nixosConfigurations."tower3" = inputs.nixpkgs.lib.nixosSystem {
+      nixosConfigurations."tower2" = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixos/tower3/configuration.nix

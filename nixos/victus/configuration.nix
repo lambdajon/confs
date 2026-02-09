@@ -20,7 +20,7 @@
 
     inputs.home-manager.nixosModules.home-manager
 
-    inputs.relago.nixosModules.relago
+    # inputs.relago.nixosModules.relago
   ];
 
   # Bootloader.
@@ -88,10 +88,10 @@
   };
 
 
-  services.relago = {
-    enable = true;
-    # user = users.users.lambdajon;
-  };
+  # services.relago = {
+  #   enable = true;
+  #   # user = users.users.lambdajon;
+  # };
   hardware.nvidia = {
     modesetting.enable = false;
     powerManagement.enable = false;
