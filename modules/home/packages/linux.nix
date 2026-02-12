@@ -9,4 +9,6 @@
 
   #xorg-kill
   pkgs.xkill
+
+  pkgs.logiops
 ]
