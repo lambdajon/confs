@@ -4,8 +4,8 @@
 {
   inputs,
   outputs,
-  pkgs,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -19,20 +19,21 @@
     ./hardware-configuration.nix
 
     inputs.home-manager.nixosModules.home-manager
-
-    # inputs.relago.nixosModules.relago
   ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.crashDump.enable = true;
+
+  networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  networking.networkmanager.enable = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Tashkent";
 
@@ -51,9 +52,6 @@
     layout = "us";
     variant = "";
   };
-
-  services.power-profiles-daemon.enable = false;
-  powerManagement.powertop.enable = false;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -74,47 +72,6 @@
     #media-session.enable = true;
   };
 
-  services.dbus = {
-    enable = true;
-    implementation = "broker";
-    packages = with pkgs; [
-      xfce.xfconf
-      gnome2.GConf
-    ];
-  };
-
-  environment.variables = {
-    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.libGL}/lib";
-  };
-
-
-  # services.relago = {
-  #   enable = true;
-  #   # user = users.users.lambdajon;
-  # };
-  hardware.nvidia = {
-    modesetting.enable = false;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = true;
-    nvidiaSettings = true;
-    nvidiaPersistenced = false;
-    dynamicBoost.enable = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      mesa
-      libvdpau
-      libva-vdpau-driver
-      libva
-      vulkan-loader
-      vulkan-validation-layers
-    ];
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -128,24 +85,6 @@
   #   ];
   # };
 
-  networking = {
-    hostName = "nixos"; # Define your hostname.
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Enable networking
-    networkmanager.enable = true;
-
-    # Open ports in the firewall.
-    # firewall.allowedTCPPorts = [ ... ];
-    # firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    firewall.enable = false;
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -154,7 +93,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  security.sudo.wheelNeedsPassword = false;
+  environment.systemPackages = with pkgs; [
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -173,6 +115,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
