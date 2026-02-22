@@ -222,7 +222,7 @@ in {
         gnomeExtensions.gsconnect
 
         # Gnome Shell Packs
-        unstable.papirus-icon-theme
+        papirus-icon-theme
 
         # Normal fucking browser
         inputs.zen-browser.packages."${pkgs.system}".twilight

@@ -50,13 +50,13 @@
     };
 
     # Personal repository of lib, overlays and packages
-    orzklv-pkgs = {
-      url = "github:orzklv/pkgs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-unstable.follows = "nixpkgs-unstable";
-      };
-    };
+    # orzklv-pkgs = {
+    #   url = "github:orzklv/pkgs";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     nixpkgs-unstable.follows = "nixpkgs-unstable";
+    #   };
+    # };
 
     # An anime game(s) launcher (Genshin Impact)
     # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -95,7 +95,7 @@
     nixpkgs,
     home-manager,
     flake-utils,
-    orzklv-pkgs,
+    # orzklv-pkgs,
     # relago,
     ...
   } @ inputs: let
@@ -119,10 +119,10 @@
     {
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      inherit (orzklv-pkgs) formatter;
+      # inherit (orzklv-pkgs) formatter;
 
       # Nixpkgs, Home-Manager and personal helpful functions
-      lib = nixpkgs.lib // home-manager.lib // orzklv-pkgs.lib;
+      lib = nixpkgs.lib // home-manager.lib;
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
