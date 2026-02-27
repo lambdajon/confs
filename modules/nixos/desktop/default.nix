@@ -229,6 +229,9 @@ in {
 
         # Some office stuff
         libreoffice-fresh
+
+        mullvad-vpn
+        mullvad
       ];
     };
   };

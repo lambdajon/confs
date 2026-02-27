@@ -79,13 +79,21 @@
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
 
-    # relago = {
-    #   url = "github:xinux-org/relago/bootstrap-relago-module";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     nixpkgs-unstable.follows = "nixpkgs-unstable";
-    #   };
-    # };
+    relago = {
+      url = "github:xinux-org/relago/bootstrap-relago-module";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
+
+    crashes = {
+      url = "github:xinux-org/crash";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -97,6 +105,7 @@
     flake-utils,
     # orzklv-pkgs,
     # relago,
+    crashes,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -158,15 +167,15 @@
         };
       };
 
-      nixosConfigurations."tower2" = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./nixos/tower2/configuration.nix
-        ];
-        specialArgs = {
-          inherit inputs outputs;
-        };
-      };
+      # nixosConfigurations."tower2" = inputs.nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ./nixos/tower2/configuration.nix
+      #   ];
+      #   specialArgs = {
+      #     inherit inputs outputs;
+      #   };
+      # };
 
       nixosConfigurations."victus" = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
