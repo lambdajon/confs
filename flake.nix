@@ -50,13 +50,13 @@
     };
 
     # Personal repository of lib, overlays and packages
-    orzklv-pkgs = {
-      url = "github:orzklv/pkgs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-unstable.follows = "nixpkgs-unstable";
-      };
-    };
+    # orzklv-pkgs = {
+    #   url = "github:orzklv/pkgs";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     nixpkgs-unstable.follows = "nixpkgs-unstable";
+    #   };
+    # };
 
     # An anime game(s) launcher (Genshin Impact)
     # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -79,13 +79,21 @@
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
 
-    # relago = {
-    #   url = "github:xinux-org/relago/bootstrap-relago-module";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     nixpkgs-unstable.follows = "nixpkgs-unstable";
-    #   };
-    # };
+    relago = {
+      url = "github:xinux-org/relago/bootstrap-relago-module";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
+
+    crashes = {
+      url = "github:xinux-org/crash";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -95,8 +103,9 @@
     nixpkgs,
     home-manager,
     flake-utils,
-    orzklv-pkgs,
+    # orzklv-pkgs,
     # relago,
+    crashes,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -119,10 +128,10 @@
     {
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      inherit (orzklv-pkgs) formatter;
+      # inherit (orzklv-pkgs) formatter;
 
       # Nixpkgs, Home-Manager and personal helpful functions
-      lib = nixpkgs.lib // home-manager.lib // orzklv-pkgs.lib;
+      lib = nixpkgs.lib // home-manager.lib;
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
@@ -158,15 +167,15 @@
         };
       };
 
-      nixosConfigurations."tower2" = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./nixos/tower2/configuration.nix
-        ];
-        specialArgs = {
-          inherit inputs outputs;
-        };
-      };
+      # nixosConfigurations."tower2" = inputs.nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ./nixos/tower2/configuration.nix
+      #   ];
+      #   specialArgs = {
+      #     inherit inputs outputs;
+      #   };
+      # };
 
       nixosConfigurations."victus" = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
