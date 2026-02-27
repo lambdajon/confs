@@ -96,7 +96,7 @@
   # };
 
   services.CCrash = {
-    enable = true;
+    enable = false;
     # user = users.users.lambdajon;
   };
   # crashes
