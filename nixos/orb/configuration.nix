@@ -42,8 +42,7 @@
   
   users.users.lambdajon = {
     uid = 501;
-    extraGroups = ["wheel" "orbstack"];
-
+    extraGroups = ["wheel" "orbstack" "networkmanager" "admins" "media"];
     # simulate isNormalUser, but with an arbitrary UID
     isNormalUser = true;
     group = "users";
