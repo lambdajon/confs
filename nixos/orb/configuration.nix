@@ -66,6 +66,8 @@
     };
   };
 
+  systemd.coredump.enable =  true;
+
   # Extra certificates from OrbStack.
   security.pki.certificates = [
     ''
