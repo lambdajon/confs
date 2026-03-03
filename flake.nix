@@ -188,7 +188,7 @@
       };
 
       nixosConfigurations."nixos" = inputs.nixpkgs.lib.nixosSystem {
-        system = "aarch-linux";
+        system = "aarch64-linux";
         modules = [
           ./nixos/orb/configuration.nix
         ];
