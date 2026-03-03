@@ -88,7 +88,7 @@
     };
 
     crashes = {
-      url = "github:xinux-org/crash";
+      url = "github:xinux-org/crash/feature/java-py-integrate";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
