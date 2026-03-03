@@ -45,7 +45,7 @@
     extraGroups = ["wheel" "orbstack"];
 
     # simulate isNormalUser, but with an arbitrary UID
-    isSystemUser = true;
+    isNormalUser = true;
     group = "users";
     createHome = true;
     home = "/home/lambdajon";
