@@ -26,8 +26,7 @@
     inputs.crashes.nixosModules.segfault
 
   ];
-
-  services.segfault.enable = true;
+  services.xinux-segfault.enable = true;
   
   users.users.lambdajon = {
     uid = 501;
