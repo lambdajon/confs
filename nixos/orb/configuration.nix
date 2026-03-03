@@ -22,8 +22,13 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.nixpkgs
     # outputs.nixosModules.boot.systemd
+
+    inputs.crashes.nixosModules.segfault
+
   ];
 
+  services.segfault.enable = true;
+  
   users.users.lambdajon = {
     uid = 501;
     extraGroups = ["wheel" "orbstack"];
