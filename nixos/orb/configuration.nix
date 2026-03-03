@@ -25,12 +25,12 @@
     inputs.crashes.nixosModules.segfault
 
   ];
-  services.xinux-segfault.enable = true;
+  # services.xinux-segfault.enable = true;
 
     # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.crashDump.enable = true;
-  
+
   
   users.users.lambdajon = {
     uid = 501;
