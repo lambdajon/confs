@@ -187,6 +187,16 @@
         };
       };
 
+      nixosConfigurations."nixos" = inputs.nixpkgs.lib.nixosSystem {
+        system = "aarch-linux";
+        modules = [
+          ./nixos/orb/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
+
       # Darwin configuration entrypoint
       # Available through 'darwin-rebuild build --flake .#your-hostname'
       # Stored at/as root/darwin/<alias name for machine>/*.nix

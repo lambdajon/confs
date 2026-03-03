@@ -2,7 +2,7 @@
 # This WILL be overwritten in the future. Make a copy and update the include
 # in configuration.nix if you want to keep your changes.
 
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   # Add OrbStack CLI tools to PATH
@@ -18,6 +18,9 @@
   documentation.man.enable = true;
   documentation.doc.enable = true;
   documentation.info.enable = true;
+  environment.variables = {
+    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.libGL}/lib";
+  };
 
   # Disable systemd-resolved
   services.resolved.enable = false;
