@@ -27,8 +27,8 @@
 
   ];
 
-  services.segfault.enable = true;
-  
+  services.xinux-segfault.enable = true;
+
   users.users.lambdajon = {
     uid = 501;
     extraGroups = ["wheel" "orbstack"];
