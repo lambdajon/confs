@@ -29,9 +29,16 @@
 
     # Bootloader.
   # boot.loader.systemd-boot.enable = true;
-  boot.crashDump.enable = true;
-
-  
+  boot = {
+    consoleLogLevel = 0;
+    crashDump.enable = true;
+  };
+  kernelParams = [
+    "quiet"
+    "rd.systemd.show_status=false"
+    "rd.udev.log_level=3"
+    "udev.log_priority=3"
+  ];
   users.users.lambdajon = {
     uid = 501;
     extraGroups = ["wheel" "orbstack"];
