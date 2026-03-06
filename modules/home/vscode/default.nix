@@ -64,7 +64,7 @@
               ms-vscode.cpptools-extension-pack
               mads-hartmann.bash-ide-vscode
               llvm-vs-code-extensions.vscode-clangd
-              yandeu.five-server
+              
             ]
             ++ pkgs.vscode-utils. extensionsFromVscodeMarketplace [
               {
