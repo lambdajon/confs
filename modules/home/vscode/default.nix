@@ -113,6 +113,7 @@
             };
             "cSpell.userWords" = [
             ];
+            "agdaMode.connection.paths"= ["agda" "~/.nix-profile/bin/agd"];
             chat.disableAIFeatures = true;
             "chat.agent.enabled" = false;
             "chat.commandCenter.enabled" = false;

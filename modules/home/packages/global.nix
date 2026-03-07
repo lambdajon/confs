@@ -44,9 +44,11 @@
   # Lean
   pkgs.elan
   # Agda
-  (pkgs.agda.withPackages (ps:
-    with ps; [
+  (pkgs.agda.withPackages (ps: with ps; [
       standard-library
+      cubical
+      _1lab
+      generics
     ]))
   # Alloy
   pkgs.alloy6
