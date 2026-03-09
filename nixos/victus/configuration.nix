@@ -21,6 +21,7 @@
     inputs.home-manager.nixosModules.home-manager
 
     # inputs.relago.nixosModules.relago
+    inputs.crashes.nixosModules.CCrashed
   ];
 
   # Bootloader.
@@ -46,6 +47,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.xserver.videoDrivers = ["nvidia"];
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -92,6 +94,15 @@
   #   enable = true;
   #   # user = users.users.lambdajon;
   # };
+
+  services.CCrash = {
+    enable = false;
+    # user = users.users.lambdajon;
+  };
+  # crashes
+
+  services.mullvad-vpn.enable = true;
+  
   hardware.nvidia = {
     modesetting.enable = false;
     powerManagement.enable = false;

@@ -10,10 +10,10 @@
         "rd.udev.log_level=3"
         "udev.log_priority=3"
       ];
-      loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-      };
+      # loader = {
+      #   systemd-boot.enable = true;
+      #   efi.canTouchEfiVariables = true;
+      # };
     };
   };
 }

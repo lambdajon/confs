@@ -64,6 +64,7 @@
               ms-vscode.cpptools-extension-pack
               mads-hartmann.bash-ide-vscode
               llvm-vs-code-extensions.vscode-clangd
+              
             ]
             ++ pkgs.vscode-utils. extensionsFromVscodeMarketplace [
               {
@@ -112,6 +113,7 @@
             };
             "cSpell.userWords" = [
             ];
+            "agdaMode.connection.paths"= ["agda" "~/.nix-profile/bin/agd"];
             chat.disableAIFeatures = true;
             "chat.agent.enabled" = false;
             "chat.commandCenter.enabled" = false;

@@ -7,17 +7,17 @@
   inherit (inputs.self) lib;
 
   # Packages that are not aarch64 compatible
-  x86_64-only =
-    lib.condition.mkArrIf
-    pkgs.stdenv.hostPlatform.isx86_64
-    (with pkgs; [
-      # Latest discord
-      pkgs.discord
-      # To patch discord's krisp
-      pkgs.krisper
-      # Zoom conference
-      zoom-us
-    ]);
+  # x86_64-only =
+  #   lib.condition.mkArrIf
+  #   pkgs.stdenv.hostPlatform.isx86_64
+  #   (with pkgs; [
+  #     # Latest discord
+  #     pkgs.discord
+  #     # To patch discord's krisp
+  #     pkgs.krisper
+  #     # Zoom conference
+  #     zoom-us
+  #   ]);
 
   packages =
     (with pkgs; [
@@ -26,13 +26,13 @@
       # Mastodon client
       tuba
       # Telegram desktop
-      unstable.telegram-desktop
+      telegram-desktop
       # GitHub Desktop
       github-desktop
       # RDP Management
       remmina
-    ])
-    ++ x86_64-only;
+    ]);
+    # ++ x86_64-only;
 
   hashedPassword = lib.strings.concatStrings [
     "$y$j9T$Mz/8a3eFGN0Iadkgh0Bi80$9DapI4"
