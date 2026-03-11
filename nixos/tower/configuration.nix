@@ -24,6 +24,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["lambdajon"];
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
