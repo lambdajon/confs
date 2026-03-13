@@ -21,7 +21,7 @@
     inputs.home-manager.nixosModules.home-manager
 
     # inputs.relago.nixosModules.relago
-    inputs.crashes.nixosModules.CCrashed
+    # inputs.crashes.nixosModules.CCrashed
   ];
 
   # Bootloader.
@@ -95,10 +95,10 @@
   #   # user = users.users.lambdajon;
   # };
 
-  services.CCrash = {
-    enable = false;
-    # user = users.users.lambdajon;
-  };
+  # services.CCrash = {
+  #   enable = false;
+  #   # user = users.users.lambdajon;
+  # };
   # crashes
 
   services.mullvad-vpn.enable = true;
