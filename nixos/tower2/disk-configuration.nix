@@ -1,6 +1,7 @@
 {
   disks ? [
     "/dev/nvme0n1"
+    "/dev/sda"
   ],
   ...
 }: {
@@ -34,6 +35,31 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+              };
+            };
+          };
+        };
+      };
+      storage = {
+        device = builtins.elemAt disks 1;
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            MEDIA = {
+              size = "500G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/media";
+              };
+            };
+            SERVER = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/srv";
               };
             };
           };
