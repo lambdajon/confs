@@ -197,6 +197,18 @@
         };
       };
 
+
+      nixosConfigurations."beliydobriy" = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos/tower2/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
+
+
       # Darwin configuration entrypoint
       # Available through 'darwin-rebuild build --flake .#your-hostname'
       # Stored at/as root/darwin/<alias name for machine>/*.nix
