@@ -24,6 +24,26 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware = {
+    graphics = {
+      enable = true;
+    };
+
+    nvidia = {
+      # enable = true;
+      open = true;
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      powerManagement.enable = true;
+    };
+
+    bluetooth.settings = {
+      General = {
+        Experimental = true;
+      };
+    };
+  };
+  
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -41,7 +61,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+  };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
