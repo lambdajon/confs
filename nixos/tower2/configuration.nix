@@ -7,7 +7,8 @@
   config,
   pkgs,
   ...
-}: {
+}:let relago = inputs.relago.packages.x86_64-linux.default; in {
+  
   imports = [
     outputs.nixosModules.zsh
     outputs.nixosModules.ssh
@@ -17,12 +18,26 @@
     outputs.nixosModules.users.lambdajon
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.crash.nixosModules.c-segfault
+    inputs.relagoServer.nixosModules.server
+    inputs.relago.nixosModules.default
 
     inputs.home-manager.nixosModules.home-manager
+    inputs.nix-data.nixosModules.nix-data
   ];
+
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "/home/lambdajon/confs/nixos/tower2/configuration.nix";
+    flake = "/home/lambdajon/confs/flake.nix";
+    flakearg = "nixos"; # your hostname 
+  };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # services.xinux-c-segfault.enable = true;
+  
+  services.relago = {enable = true; nix-config = "/home/lambdajon/confs";};
 
   hardware = {
     graphics = {
@@ -43,6 +58,8 @@
       };
     };
   };
+
+  
   
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -108,12 +125,17 @@
   #   ];
   # };
 
+
   programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    docker-compose
+    docker
+    relago
   ];
+  virtualisation.docker.enable = true;
 
   system.stateVersion = "25.11"; # Did you read the comment?
 }
