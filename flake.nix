@@ -79,20 +79,34 @@
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
 
+    
     relago = {
-      url = "github:xinux-org/relago/bootstrap-relago-module";
+      url = "git+https://git.oss.uzinfocom.uz/xinux/relago.git?shallow=1";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
       };
     };
 
-    crashes = {
-      url = "github:xinux-org/crash/feature/java-py-integrate";
+    crash = {
+      url = "github:xinux-org/crash";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
       };
+    };
+
+    relagoServer = {
+      url = "github:xinux-org/relago-support";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
+    };
+
+    nix-data = {
+      url = "github:xinux-org/nix-data";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -104,8 +118,8 @@
     home-manager,
     flake-utils,
     # orzklv-pkgs,
-    # relago,
-    crashes,
+    relago,
+    crash,
     ...
   } @ inputs: let
     # Self instance pointer
