@@ -19,7 +19,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.crash.nixosModules.c-segfault
-    inputs.relagoServer.nixosModules.server
+    # inputs.relagoServer.nixosModules.server
     inputs.relago.nixosModules.default
 
     inputs.home-manager.nixosModules.home-manager

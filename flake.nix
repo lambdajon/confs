@@ -16,7 +16,8 @@
     # at the same time. Here's an working example:
 
     # Nixpkgs for darwin
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
+    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
+    
 
     # Unstable Nixpkgs
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -30,8 +31,8 @@
 
     # Nix-darwin for macOS systems management
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Flake utils for eachSystem
@@ -96,13 +97,13 @@
       };
     };
 
-    relagoServer = {
-      url = "github:xinux-org/relago-support";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-unstable.follows = "nixpkgs-unstable";
-      };
-    };
+    # relagoServer = {
+    #   url = "git+https://git.oss.uzinfocom.uz/xinux/relago-support.git?shalow=1";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     nixpkgs-unstable.follows = "nixpkgs-unstable";
+    #   };
+    # };
 
     nix-data = {
       url = "github:xinux-org/nix-data";
@@ -118,8 +119,6 @@
     home-manager,
     flake-utils,
     # orzklv-pkgs,
-    relago,
-    crash,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -228,7 +227,7 @@
       # Stored at/as root/darwin/<alias name for machine>/*.nix
 
       darwinConfigurations."Lambdajons-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
-        system = "aarch-darwin";
+        system = "aarch64-darwin";
         modules = [
           ./darwin/macbook-pro/configuration.nix
         ];
