@@ -5,6 +5,9 @@
   pkgs,
   ...
 }: let
+  inherit (pkgs) stdenv;
+  osx = stdenv.hostPlatform.isDarwin;
+
   modules = [
     outputs.homeModules.zsh
     outputs.homeModules.git
@@ -19,12 +22,11 @@
     outputs.homeModules.vscode
     outputs.homeModules.haskell
     # outputs.homeModules.emacs
+    outputs.homeModules.xmonad
 
     # Third party modules
     # inputs.zen-browser.homeModules.twilight
   ];
-  inherit (pkgs) stdenv;
-  osx = stdenv.hostPlatform.isDarwin;
 
   home =
     if osx
@@ -37,14 +39,6 @@
     # This is to ensure programs are using ~/.config rather than
     # /Users/lambdajon/Library/whatever
     xdg.enable = true;
-  };
-
-  linuxModules = [
-    outputs.homeModules.xmonad
-  ];
-
-  linux = lib.mkIf (!osx) {
-    imports = linuxModules;
   };
 
   cfg = {
@@ -74,6 +68,5 @@ in {
     [
       cfg
       macos
-      linux
     ];
 }
