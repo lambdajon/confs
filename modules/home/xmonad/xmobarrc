@@ -1,0 +1,45 @@
+Config
+    { font              = "JetBrainsMono Nerd Font 10"
+    , additionalFonts   = []
+    , borderColor       = "#282828"
+    , border            = TopB
+    , bgColor           = "#282828"
+    , fgColor           = "#ebdbb2"
+    , alpha             = 255
+    , position          = TopH 24
+    , textOffset        = -1
+    , iconOffset        = -1
+    , lowerOnStart      = True
+    , pickBroadest      = False
+    , persistent        = False
+    , hideOnStart       = False
+    , iconRoot          = "."
+    , allDesktops       = True
+    , overrideRedirect  = True
+    , commands          =
+        [ Run Cpu ["-t", "<fc=#83a598>\xf4bc</fc> <total>%", "-L", "3", "-H", "50", "--high", "red"] 10
+        , Run Memory ["-t", "<fc=#d3869b>\xf035b</fc> <usedratio>%"] 10
+        , Run Date "<fc=#fabd2f>\xf073</fc> %a %b %d  <fc=#8ec07c>\xf017</fc> %H:%M" "date" 10
+        , Run Battery
+            [ "-t", "<fc=#b8bb26>\xf240</fc> <acstatus>"
+            , "-L", "20", "-H", "80"
+            , "--low", "red"
+            , "--normal", "yellow"
+            , "--high", "green"
+            , "--"
+            , "-o", "<left>% (<timeleft>)"
+            , "-O", "Charging <left>%"
+            , "-i", "Full"
+            ] 50
+        , Run DynNetwork
+            [ "-t", "<fc=#fe8019>\xf0ab</fc> <rx>KB  <fc=#fe8019>\xf0aa</fc> <tx>KB"
+            , "-L", "0", "-H", "32"
+            , "--normal", "green"
+            , "--high", "red"
+            ] 10
+        , Run UnsafeXMonadLog
+        ]
+    , sepChar           = "%"
+    , alignSep          = "}{"
+    , template          = " %UnsafeXMonadLog% }{ %cpu% | %memory% | %dynnetwork% | %battery% | %date% "
+    }

@@ -11,7 +11,7 @@
   imports = [
     outputs.nixosModules.zsh
     outputs.nixosModules.ssh
-    outputs.nixosModules.desktop
+    outputs.nixosModules.xmonad
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.systemd
     outputs.nixosModules.users.lambdajon
@@ -40,19 +40,8 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
+  # Nvidia driver
   services.xserver.videoDrivers = ["nvidia"];
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 
   services.power-profiles-daemon.enable = false;
   powerManagement.powertop.enable = false;
@@ -79,10 +68,6 @@
   services.dbus = {
     enable = true;
     implementation = "broker";
-    packages = with pkgs; [
-      xfce.xfconf
-      gnome2.GConf
-    ];
   };
 
   environment.variables = {

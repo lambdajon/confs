@@ -11,5 +11,6 @@
   # data = import ./data;
   users = import ./users;
   desktop = import ./desktop;
+  xmonad = import ./xmonad;
   nixpkgs = import ./nixpkgs;
 }

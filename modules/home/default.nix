@@ -18,4 +18,5 @@
   vscode = import ./vscode;
   haskell = import ./haskell;
   emacs = import ./emacs;
+  xmonad = import ./xmonad;
 }
