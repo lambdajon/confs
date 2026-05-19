@@ -22,10 +22,10 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.nixpkgs
 
-    inputs.crashes.nixosModules.segfault
+    # inputs.crashes.nixosModules.segfault
 
   ];
-  services.xinux-segfault.enable = true;
+  # services.xinux-segfault.enable = true;
 
     # Bootloader.
   # boot.loader.systemd-boot.enable = true;
