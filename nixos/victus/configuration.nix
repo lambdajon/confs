@@ -31,9 +31,6 @@
     flake = "/home/lambdajon/confs/flake.nix";
     flakearg = "nixos"; # your hostname 
   };
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   # services.xinux-c-segfault.enable = true;
   
   services.relago = {enable = true; nix-config = "/home/lambdajon/confs";};
