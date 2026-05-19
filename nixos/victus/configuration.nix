@@ -11,24 +11,39 @@
   imports = [
     outputs.nixosModules.zsh
     outputs.nixosModules.ssh
-    # outputs.nixosModules.xmonad
+    outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.systemd
     outputs.nixosModules.users.lambdajon
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.crash.nixosModules.c-segfault
+    # inputs.relagoServer.nixosModules.server
+    inputs.relago.nixosModules.default
 
     inputs.home-manager.nixosModules.home-manager
-
-    # inputs.relago.nixosModules.relago
-    # inputs.crashes.nixosModules.CCrashed
+    inputs.nix-data.nixosModules.nix-data
   ];
+
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "/home/lambdajon/confs/nixos/victus/configuration.nix";
+    flake = "/home/lambdajon/confs/flake.nix";
+    flakearg = "nixos"; # your hostname 
+  };
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # services.xinux-c-segfault.enable = true;
+  
+  services.relago = {enable = true; nix-config = "/home/lambdajon/confs";};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.crashDump.enable = true;
 
+  
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
