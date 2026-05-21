@@ -21,6 +21,7 @@
 
     outputs.nixosModules.zsh
     outputs.nixosModules.nixpkgs
+    outputs.nixosModules.nixpkgs
 
     # inputs.crashes.nixosModules.segfault
 
