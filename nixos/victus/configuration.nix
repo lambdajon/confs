@@ -95,7 +95,7 @@
   };
 
   environment.variables = {
-    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.libGL}/lib";
+    LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
   };
 
 
@@ -113,7 +113,7 @@
   services.mullvad-vpn.enable = true;
   
   hardware.nvidia = {
-    modesetting.enable = false;
+    modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = true;
