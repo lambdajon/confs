@@ -24,6 +24,7 @@
     outputs.nixosModules.nixpkgs
 
     # inputs.crashes.nixosModules.segfault
+    inputs.nix-data.nixosModules.nix-data
 
   ];
   # services.xinux-segfault.enable = true;
@@ -39,6 +40,13 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
+  };
+
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "/home/lambdajon/confs/nixos/orb/configuration.nix";
+    flake = "/home/lambdajon/confs/flake.nix";
+    flakearg = "nixos"; # your hostname 
   };
   
   users.users.lambdajon = {
