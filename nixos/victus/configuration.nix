@@ -94,10 +94,6 @@
     implementation = "broker";
   };
 
-  environment.variables = {
-    LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
-  };
-
 
   # services.relago = {
   #   enable = true;
@@ -113,13 +109,10 @@
   services.mullvad-vpn.enable = true;
   
   hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = true;
-    nvidiaSettings = true;
-    nvidiaPersistenced = false;
-    dynamicBoost.enable = false;
+      open = true;
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      powerManagement.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
