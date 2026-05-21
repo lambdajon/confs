@@ -1,12 +1,14 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.disko.nixosModules.disko
     (modulesPath + "/installer/scan/not-detected.nix")
+    ./disk-configuration.nix
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod"];
