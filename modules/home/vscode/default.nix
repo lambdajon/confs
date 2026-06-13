@@ -152,6 +152,7 @@
             "workbench.colorTheme" = "Gruvbox Dark Medium";
             "workbench.iconTheme" = "material-icon-theme";
             "workbench.productIconTheme" = "material-product-icons";
+            "editor.unicodeHighlight.ambiguousCharacters"= false;
             haskell = {
               formattingProvider = "fourmolu";
               manageHLS = "PATH";
