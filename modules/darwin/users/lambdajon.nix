@@ -16,7 +16,7 @@
           builtins.readFile (
             builtins.fetchurl {
               url = "https://github.com/lambdajon.keys";
-              sha256 = "91326cec646e76dfd3af79035f7254085b57319d91720d15b9f6caa853a0e554";
+              sha256 = "14c87239fcdd80f4f6a3dfd2683e437d321022f32ac09cf40a404626c25e9673";
             }
           )
         );
