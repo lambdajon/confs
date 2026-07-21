@@ -64,7 +64,7 @@
               ms-vscode.cpptools-extension-pack
               mads-hartmann.bash-ide-vscode
               llvm-vs-code-extensions.vscode-clangd
-              
+              LucasAschenbach.unicode-math-symbols
             ]
             ++ pkgs.vscode-utils. extensionsFromVscodeMarketplace [
               {
