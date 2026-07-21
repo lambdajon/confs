@@ -64,7 +64,6 @@
               ms-vscode.cpptools-extension-pack
               mads-hartmann.bash-ide-vscode
               llvm-vs-code-extensions.vscode-clangd
-              LucasAschenbach.unicode-math-symbols
             ]
             ++ pkgs.vscode-utils. extensionsFromVscodeMarketplace [
               {
@@ -97,9 +96,19 @@
                 version = "1.0.2";
                 sha256 = "hrzPNPaG8LPNMJq/0uyOS8jfER1Q0CyFlwR42KmTz8g=";
               }
+              {
+                name = "unicode-math-symbols";
+                publisher = "LucasAschenbach";
+                version = "0.1.6";
+                sha256 = "+8ky/5uoY3zRsWUoHM+jCje3lDgi9C5KJh/585IiMXY=";
+              }
             ];
           # User defined setings (raw json)
           userSettings = {
+            "editor.tabSize" = 2;
+            "editor.quickSuggestions" = { "other" = true; "comments" = true; "strings" = true; };
+            "editor.suggest.snippetsPreventQuickSuggestions" = false;
+            "editor.snippetSuggestions" = "top";
             "[javascript]" = {
               "editor.defaultFormatter" = "esbenp.prettier-vscode";
             };
@@ -110,7 +119,7 @@
               "editor.defaultFormatter" = "vscode.json-language-features";
             };
             "[markdown]" = {
-              "editor.wordWrap" = "wordWrapColumn";
+              "editor.wordWrap" = "wordWrapColumn"; 
               "editor.wordWrapColumn" = 120;
               "editor.wrappingIndent" = "same";
               "vim.textwidth" = 120;
@@ -131,7 +140,6 @@
             "chat.commandCenter.enabled" = false;
             "inlineChat.accessibleDiffView" = "off";
             "terminal.integrated.initialHint" = false;
-            "editor.tabSize" = 2;
             "extensions.autoCheckUpdates" = false;
             "files.associations" = {
               "*.hs" = "haskell";
